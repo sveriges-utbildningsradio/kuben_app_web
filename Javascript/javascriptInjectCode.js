@@ -71,26 +71,56 @@ Some rules from this file, otherwise some client interpretation might break pars
     }
 
     /**
+    API for bookmarks:
+    This API is not implemented here (on iOS/Android it's implemented and exposed by the platform) but can be used here,
+    */
+
+    /**
+    Will save a bookmark  (on iOS and Android this is done natively),
+    BookmarkResponds.bookmarkSaved() is called after a bookmark has been saved.
+
+    pageId = UR id of the program eg 189895
+    pageUrl = the main URL of webpage eg http://urplay.ur.se/program/189895-aarons-nya-land-i-krigets-skugga
+    */
+    Bookmark.save(pageId,pageUrl)
+
+    /**
+    Will remove a bookmark (on iOS and Android this is done natively)
+    BookmarkResponds.bookmarkRemoved() is called after a bookmark has been removed.
+
+    pageId = UR id of the program eg 189895
+    pageUrl = the main URL of webpage eg http://urplay.ur.se/program/189895-aarons-nya-land-i-krigets-skugga
+    saved = the status of the bookmark save operation, TRUE IFF the bookmark has been save else FALSE
+    */
+    Bookmark.remove(pageId,pageUrl)
+
+    /**
+    Will check if a bookmark is saved (on iOS and Android this is done natively)
+    BookmarkResponds.isBookmarkedId() with the result.
+
+    pageId = UR id of the program eg 189895
+    */
+    Bookmark.isBookmarkedId(Id)
+
+    /**
         This class is called with the result after a request has been made to the Bookmark API
     */
     var BookmarkResponds = {
-        bookmarkLink: '',
-        bookmarkId: '',
-        bookmarkSaved: function (bookmarkLink,bookmarkId) {
-            this.bookmarkLink = bookmarkLink;
-            this.bookmarkId = bookmarkId;
-            console.info('bookmarkSaved link:'+bookmarkLink+' id:'+bookmarkId);
+        /**
+        Called as a responds to Bookmark.save(..) with the stutus of the save
+
+        pageId = UR id of the program eg 189895
+        pageUrl = the main URL of webpage eg http://urplay.ur.se/program/189895-aarons-nya-land-i-krigets-skugga
+        saved = the status of the bookmark save operation, TRUE IFF the bookmark has been save else FALSE
+        */
+        bookmarkSaved: function (pageId,pageUrl,saved) {
+            console.info('bookmarkSaved id:'+pageId+' url:'+pageUrl+ "status: "+saved);
         },
-        bookmarkFound: function (bookmarkLink,bookmarkId) {
-            this.bookmarkLink = bookmarkLink;
-            this.bookmarkId = bookmarkId;
-            console.info('bookmarkFound link:'+bookmarkLink+' id:'+bookmarkId);
+        bookmarkRemoved: function (pageId,pageUrl,status) {
+            console.info('bookmarkRemoved id:'+pageId+' url:'+pageUrl+ "status: "+saved);
+        },
+        isBookmarkedId: function (pageId,pageUrl,bookmarkFound) {
+            console.info('bookmarkFound id:'+pageId+' url:'+pageUrl+" bookmarkFound:" + bookmarkFound);
             showPageBookmarked();
-        },
-        bookmarkNotFound: function (bookmarkLink,bookmarkId) {
-            this.bookmarkLink = bookmarkLink;
-            this.bookmarkId = bookmarkId;
-            console.info('bookmarkNotFound link:'+bookmarkLink+' id:'+bookmarkId);
-            showPageNotBookmarked();
         }
     };
