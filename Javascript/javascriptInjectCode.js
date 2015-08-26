@@ -6,25 +6,105 @@ Some rules from this file, otherwise some client interpretation might break pars
 */
 document.addEventListener('DOMContentLoaded', function(event) {
     console.info('JS loaded');
-    Mobile.onPageFinished();
+    UR.onPageFinished();
 });
 document.onreadystatechange = function() {
     console.info('JS onreadystatechange' + document.readyState);
-    removeUrHeader();
+    UR.onPageFinished();
     if (document.readyState == "interactive") {
         console.info('JS loaded');
     }
-}
-window.addEventListener("optimizedScroll", function() {
-    console.log("optimizedScroll JS");
-    /*removeUrHeader();*/
-});
-
-window.onscroll = function(e) {
-    /*removeUrHeader();*/
 };
 
-var Mobile = new function() {
+var UR = new function() {
+    var bookmarkedImage;
+    var notBookmarkedImage;
+    var programIsBookmarkedFlag;
+    /* Preload the images for a smoother highlighting when a page is bookmarked */
+    this.loadImages = function(){
+        bookmarkedImage = new Image();
+        bookmarkedImage.src = "https://cdn1.iconfinder.com/data/icons/fatcow/32x32/star.png";
+        notBookmarkedImage = new Image();
+        notBookmarkedImage.src = "http://png-5.findicons.com/files/icons/2227/picol/32/star_outline_32.png";
+    };
+
+    this.getBookmarkUrl = function(){
+        return document.baseURI;
+    };
+
+    this.getBookmarkId = function(){
+        //parsing the ID from a source that is not the baseUrl, in this case the image of the Open Graph
+        var og = document.querySelector("meta[property='og:url']");
+        var ogImageUrl = og.getAttribute('content');
+        var re = new RegExp("[0-9]{6}");
+        var idString = ogImageUrl.match(re);
+        return idString[0];
+    };
+
+    /* Add and show the bookmark button */
+    this.addBookmarkButton= function(){
+        console.info('addBookmarkButton');
+        var bookmarkbuttonExists = document.getElementById('bookmarkButton');
+
+        if( typeof bookmarkbuttonExists !== 'undefined' && bookmarkbuttonExists !== null ){
+            console.info('bookmark button already found, will not add it again, bookmarkbuttonExists'+bookmarkbuttonExists);
+            return;
+        }
+
+        var productButtons = document.getElementsByClassName('product-buttons')[0];
+        var url = document.baseURI;
+
+        if ((typeof productButtons === 'undefined') || (productButtons === null)) {
+            console.error("can't find product-buttons");
+            return;
+        }
+
+        /* create bookmarkButton */
+        bookmarkButton = document.createElement('button');
+        bookmarkButton.type = 'button';
+        bookmarkButton.name = 'bookmark';
+        bookmarkButton.id='bookmarkButton';
+        bookmarkButton.style.display = 'inline-block';
+        bookmarkButton.style.backgroundRepeat='no-repeat';
+        bookmarkButton.style.padding = '22px 22px 22px 22px';
+        bookmarkButton.style.backgroundPosition = 'center center';
+        bookmarkButton.addEventListener('click', function() {
+            if(UR.programIsBookmarkedFlag === false){
+                UR.Bookmark.save( UR.getBookmarkId() , UR.getBookmarkUrl() );
+            }else if(UR.programIsBookmarkedFlag === true){
+                UR.Bookmark.remove( UR.getBookmarkId() , UR.getBookmarkUrl() );
+            }else{
+                 console.info('can_t determine if the page is bookmarked, UR.programIsBookmarkedFlag:'+UR.programIsBookmarkedFlag);
+            }
+        });
+
+        var bookmarkButtonText = document.createTextNode("");
+        bookmarkButton.appendChild(bookmarkButtonText);
+
+        /*Add bookmarkButton to product-buttons*/
+        productButtons.appendChild(bookmarkButton)
+
+        /* check program is already bookmarked */
+        UR.Bookmark.isBookmarked( UR.getBookmarkId(), UR.getBookmarkUrl() );
+    };
+
+    this.programIsBookmarked= function(){
+        var bookmarkButton = document.getElementById('bookmarkButton');
+        bookmarkButton.style.backgroundImage = "url('https://cdn1.iconfinder.com/data/icons/fatcow/32x32/star.png')";
+        /*productButtons.style.backgroundImage = bookmarkedImage;*/
+        UR.programIsBookmarkedFlag = true;
+    };
+
+    this.programIsNotBookmarked = function() {
+        var bookmarkButton = document.getElementById('bookmarkButton');
+        bookmarkButton.style.backgroundImage = "url('http://png-5.findicons.com/files/icons/2227/picol/32/star_outline_32.png')";
+        /*bookmarkButton.style.backgroundImage = notBookmarkedImage;*/
+        UR.programIsBookmarkedFlag = false;
+    };
+
+    this.allwaysShowCaptionBtn = function () {
+        document.getElementsByName("captions")[0].style.display = "inline-block";
+    };
 
     /* Remove the UR navigation header from the webpage, this is not suppose to be visible in the APP */
     this.removeUrHeader = function() {
@@ -60,17 +140,21 @@ var Mobile = new function() {
     /* Called when the page has finished loaded, might be called several times!! */
     this.onPageFinished = function() {
         /*hideURHeader();*/
-        removeUrHeader();
+        UR.removeUrHeader();
+        UR.loadImages();
+        UR.addBookmarkButton();
     };
 
     /* function that enables the UI element in the html page that shows that a page has been  bookmarked */
     this.showPageBookmarked = function() {
         console.info('showPageBookmarked');
+        UR.programIsBookmarked();
     };
 
     /* function that disables the UI element in the html page that shows that a page has been  bookmarked */
     this.showPageNotBookmarked = function() {
         console.info('showPageNotBookmarked');
+        UR.programIsNotBookmarked();
     };
 
     /* Show the bookmark UI on the webpage */
@@ -79,15 +163,20 @@ var Mobile = new function() {
     };
 
     this.isIOS = function() {
-        //Look for the webkit functions that IOS is using.
-        if (typeof webkit === 'undefined' || typeof webkit.messageHandlers === 'undefined') return false;
+        //Look for the webkit feature that IOS is using.
+        if (typeof webkit === 'undefined' || typeof webkit.messageHandlers === 'undefined')
+            return false;
 
         var isIOS = userAgent.match(/iPad/i) || userAgent.match(/iPhone/i) || userAgent.match(/iPod/i);
         return isIOS;
     };
 
     this.isAndroid = function() {
-        if (typeof AndroidBookmark !== 'undefined') return true;
+        //Check for the bookmark feature that the Android application exposes
+        if (typeof AndroidBookmark !== 'undefined')
+            return true;
+         else
+            return false;
 
     };
 
@@ -95,47 +184,80 @@ var Mobile = new function() {
         /**
         Called as a responds to Bookmark.save(..) with the stutus of the save
 
-        pageId = UR id of the program eg 189895
-        pageUrl = the main URL of webpage eg http://urplay.ur.se/program/189895-aarons-nya-land-i-krigets-skugga
-        saved = the status of the bookmark save operation, TRUE IFF the bookmark has been save else FALSE
+        pageId = UR id of the program REQUESTED eg 189895
+        pageUrl = the main URL of webpage REQUESTED eg http://urplay.ur.se/program/189895-aarons-nya-land-i-krigets-skugga
+        status = the status of the bookmark save operation, TRUE IFF the bookmark has been save else FALSE
         */
-        bookmarkSaved: function(pageId, pageUrl, saved) {
-            console.info('bookmarkSaved id:' + pageId + ' url:' + pageUrl + "status: " + saved);
-            if (document.baseURI !== pageId) {
+        bookmarkSaved: function(pageId, pageUrl, savedStatus) {
+            console.info('bookmarkresponds bookmarkSaved pageId:' + pageId + ' pageUrl:' + pageUrl + "status: " + savedStatus);
+            if (document.baseURI !== pageUrl) {
                 console.error("Url error when bookmarking a page, wrong url, baseURI:" + document.baseURI + " bookmarked url:" + pageUrl);
+                UR.showPageNotBookmarked();
                 return;
             }
-            if (saved !== true) {
-                console.error("Status error when bookmarking a page, baseURI:" + document.baseURI + " bookmarked url:" + pageUrl);
+            if (savedStatus === true || savedStatus === 'true' ) {
+                UR.showPageBookmarked();
+                return;
+            }else if (savedStatus === false || savedStatus === 'false' ) {
+                console.error("Status error:"+savedStatus+" when saving bookmarking of a page, baseURI:" + document.baseURI + " bookmarked url:" + pageUrl);
+                UR.showPageNotBookmarked();
+                return;
+            }else{
+                console.error("Status error:"+savedStatus+" when saving bookmarking of a page, baseURI:" + document.baseURI + " bookmarked url:" + pageUrl);
+                UR.showPageNotBookmarked();
                 return;
             }
-
-            showPageBookmarked();
         },
-        bookmarkRemoved: function(pageId, pageUrl, status) {
-            console.info('bookmarkRemoved id:' + pageId + ' url:' + pageUrl + "status: " + saved);
-            if (document.baseURI !== pageId) {
+        bookmarkRemoved: function(pageId, pageUrl, removedStatus) {
+            console.info('bookmarkresponds bookmarkRemoved id:' + pageId + ' url:' + pageUrl + "status: " + removedStatus);
+            if (document.baseURI !== pageUrl) {
                 console.error("Url error when removing the bookmark of a page, wrong url, baseURI:" + document.baseURI + " bookmarked url:" + pageUrl);
+                UR.showPageNotBookmarked();
                 return;
             }
-            if (saved !== true) {
-                console.error("Status error when removing the bookmark of a page, baseURI:" + document.baseURI + " bookmarked url:" + pageUrl);
+            if (removedStatus === false || removedStatus === 'false') {
+                console.error("Status error:"+removedStatus+" when removing the bookmark of a page, baseURI:" + document.baseURI + " bookmarked url:" + pageUrl);
+                UR.showPageNotBookmarked();
                 return;
-            }
-            showPageNotBookmarked();
-        },
-        isBookmarkedId: function(pageId, pageUrl, bookmarkFound) {
-            console.info('bookmarkFound id:' + pageId + ' url:' + pageUrl + " bookmarkFound:" + bookmarkFound);
-            if (document.baseURI !== pageId) {
-                console.error("Url error isBookmarkedId, wrong url, baseURI:" + document.baseURI + " bookmarked url:" + pageUrl);
+            }else if (removedStatus === true || removedStatus === 'true') {
+                UR.showPageNotBookmarked();
                 return;
-            }
-            if (saved !== true) {
-                console.error("Status error isBookmarkedId, baseURI:" + document.baseURI + " bookmarked url:" + pageUrl);
+            }else{
+                console.error("Status error:"+removedStatus+" when removing the bookmark of a page, baseURI:" + document.baseURI + " bookmarked url:" + pageUrl);
+                UR.showPageNotBookmarked();
                 return;
             }
 
-            showPageBookmarked();
+        },
+        /**
+        Called as a responds to Bookmark.isBookmarked(..) with the information if the bookmark was found or not
+
+        pageId = UR id of the program REQUESTED eg 189895
+        pageUrl = the main URL of webpage REQUESTED eg http://urplay.ur.se/program/189895-aarons-nya-land-i-krigets-skugga
+        bookmarkFound = TRUE IFF the bookmark was found else FALSE
+        */
+        isBookmarked: function(pageId, pageUrl, bookmarkFound) {
+            var found = bookmarkFound.valueOf();
+            console.info('bookmarkresponds isBookmarked pageId id:' + pageId + ' pageUrl:' + pageUrl + ' bookmarkFound:' + found);
+            if (document.baseURI !== pageUrl) {
+                console.error("Url error isBookmarked, wrong url, baseURI:" + document.baseURI + " bookmarked url:" + pageUrl);
+                UR.showPageNotBookmarked();
+                return;
+            }
+            if(typeof found === 'undefined'){
+                console.error('found was not initiated correctly');
+                UR.showPageNotBookmarked();
+                return;
+            }
+            if(found===true || found==='true'){
+                UR.showPageBookmarked();
+            }else if(found===false || found==='false'){
+                UR.showPageNotBookmarked();
+            }else{
+                UR.showPageNotBookmarked();
+                console.error('found was not initiated correctly, found:'+found);
+            }
+
         }
     };
     this.Bookmark = {
@@ -147,11 +269,11 @@ var Mobile = new function() {
             pageUrl = the main URL of webpage eg http://urplay.ur.se/program/189895-aarons-nya-land-i-krigets-skugga
             */
         save: function(pageId, pageUrl) {
-            console.info("save pageId:" + pageId + " pageUrl:" + pageUrl);
-            if (Mobile.isIOS()) {
+            console.info("bookmark save pageId:" + pageId + " pageUrl:" + pageUrl);
+            if (UR.isIOS()) {
                 /* save to IOS */
-            } else if (Mobile.isAndroid()) {
-                AndroidBookmark.save(pageId, pageUrl);
+            } else if (UR.isAndroid()) {
+               AndroidBookmark.save(pageId, pageUrl);
             }
         },
         /**
@@ -163,25 +285,25 @@ var Mobile = new function() {
             saved = the status of the bookmark save operation, TRUE IFF the bookmark has been save else FALSE
             */
         remove: function(pageId, pageUrl) {
-            console.info("remove pageId:" + pageId + " pageUrl:" + pageUrl);
-            if (Mobile.isIOS()) {
+            console.info("bookmark remove pageId:" + pageId + " pageUrl:" + pageUrl);
+            if (UR.isIOS()) {
                 /* call ios here */
-            } else if (Mobile.isAndroid()) {
+            } else if (UR.isAndroid()) {
                 AndroidBookmark.remove(pageId, pageUrl);
             }
         },
         /**
             Will check if a bookmark is saved (on iOS and Android this is done natively)
-            BookmarkResponds.isBookmarkedId() with the result.
+            BookmarkResponds.isBookmarked() with the result.
 
             pageId = UR id of the program eg 189895
             */
-        isBookmarkedId: function(Id) {
-            console.info("isBookmarkedId id:" + id);
-            if (Mobile.isIOS()) {
+        isBookmarked: function(pageId,pageUrl) {
+            console.info("bookmark isBookmarked id:" + pageId);
+            if (UR.isIOS()) {
                 /* call ios here */
-            } else if (Mobile.isAndroid()) {
-                AndroidBookmark.remove(pageId, pageUrl);
+            } else if (UR.isAndroid()) {
+                AndroidBookmark.isBookmarked(pageId,pageUrl);
             }
         }
     };
