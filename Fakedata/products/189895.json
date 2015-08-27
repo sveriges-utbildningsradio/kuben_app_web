@@ -1,20 +1,20 @@
 [  
    {  
-      product:{  
-         id:"189895",
-         title:{  
-            sv:"Aarons nya land : I krigets skugga"
+      "product":{  
+         "id":"189895",
+         "title":{  
+            "sv":"Aarons nya land : I krigets skugga"
          },
-         language:[  
+         "language":[  
             "swe"
          ],
-         description:{  
-            sv:"Att forma det nya Sverige och att visa sin svenskhet blir viktigt för de judar som etablerat sig i landet. Men när nazisterna kommer till makten i Tyskland kräver Sverige och Schweiz att ett J ska stämplas i judars pass. Man vill inte ha judiska flyktingar och ett strängt system tillämpas. Femhundra barn och några ungdomspionjärer får inresetillstånd. Den judiska församlingen väljer ut vilka och är ansvariga att se till att de blir försörjda."
+         "description":{  
+            "sv":"Att forma det nya Sverige och att visa sin svenskhet blir viktigt för de judar som etablerat sig i landet. Men när nazisterna kommer till makten i Tyskland kräver Sverige och Schweiz att ett J ska stämplas i judars pass. Man vill inte ha judiska flyktingar och ett strängt system tillämpas. Femhundra barn och några ungdomspionjärer får inresetillstånd. Den judiska församlingen väljer ut vilka och är ansvariga att se till att de blir försörjda."
          },
-         maintitle:{  
-            sv:"Aarons nya land"
+         "maintitle":{  
+            "sv":"Aarons nya land"
          },
-         duration:"00:28:00"   
-      }
+         "duration":"00:28:00"   
+      	}
    }
 ]
