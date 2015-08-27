@@ -1,20 +1,29 @@
-[  
-   {  
-      "product":{  
-         "id":"189895",
-         "title":{  
-            "sv":"Aarons nya land : I krigets skugga"
-         },
-         "language":[  
-            "swe"
-         ],
-         "description":{  
-            "sv":"Att forma det nya Sverige och att visa sin svenskhet blir viktigt för de judar som etablerat sig i landet. Men när nazisterna kommer till makten i Tyskland kräver Sverige och Schweiz att ett J ska stämplas i judars pass. Man vill inte ha judiska flyktingar och ett strängt system tillämpas. Femhundra barn och några ungdomspionjärer får inresetillstånd. Den judiska församlingen väljer ut vilka och är ansvariga att se till att de blir försörjda."
-         },
-         "maintitle":{  
-            "sv":"Aarons nya land"
-         },
-         "duration":"00:28:00"   
-      	}
-   }
+[
+{
+product: {
+id: 178324,
+title: "Allti Kartong - sydsamiska : Fart",
+description: "Robotarna Allti och Lilla Röd bygger om sin cykel för att få den att gå fortare, så att de kan vinna en cykeltävlig. Efter misslyckade försök med ett segel och en fläkt bygger de en raketmotor i kartong. Den fungerar tyvärr sämre än väntat. I cykeltävlingen deltar en enhjuling, en tandemcykel, en vanlig cykel, robotarnas raketcykel och en motionscykel.",
+maintitle: "Allti Kartong - sydsamiska",
+duration: "00:07:58"
+}
+},
+{
+product: {
+id: 178325,
+title: "Allti Kartong - sydsamiska : Monster",
+description: "Allti och Lilla Röd har blivit bjudna på maskerad. De uppmanas att klä sig läskigt och beger därför till maskeradbutiken för att hyra l utklädningskläder. På vägen dit råkar Allti linda in sig i toalettpapper och få ketchup från en korv på sig. Lilla Röd tar en genväg genom en biltvätt och råkar köra genom ett stort spindelnät. Väl framme vid maskeradaffären behöver de inte klä ut sig utan kan gå direkt till maskeraden.",
+maintitle: "Allti Kartong - sydsamiska",
+duration: "00:08:27"
+}
+},
+{
+product: {
+id: 178323,
+title: "Allti Kartong - sydsamiska : Potatis",
+description: "Robotarna Allti och Lilla Röd sitter i sitt kartongbeklädda kök och äter elektriska komponenter. Lilla Röd är inte nöjd med sin mat utan vill ha "människomat". Sökandet leder dem till en åker där de får åka traktor och hjälpa till med potatisskörden.",
+maintitle: "Allti Kartong - sydsamiska",
+duration: "00:07:53"
+}
+}
 ]
