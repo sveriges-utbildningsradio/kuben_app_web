@@ -23,9 +23,11 @@ var UR = new function() {
     /* Preload the images for a smoother highlighting when a page is bookmarked */
     this.loadImages = function(){
         bookmarkedImage = new Image();
-        bookmarkedImage.src = "https://cdn1.iconfinder.com/data/icons/fatcow/32x32/star.png";
+        //bookmarkedImage.src = "https://cdn1.iconfinder.com/data/icons/fatcow/32x32/star.png";
+        bookmarkedImage.src = "https://raw.githubusercontent.com/sveriges-utbildningsradio/kuben_app_web/master/Assets/sparatTextActive.png";
         notBookmarkedImage = new Image();
-        notBookmarkedImage.src = "http://png-5.findicons.com/files/icons/2227/picol/32/star_outline_32.png";
+        //notBookmarkedImage.src = "http://png-5.findicons.com/files/icons/2227/picol/32/star_outline_32.png";
+        notBookmarkedImage.src = "https://raw.githubusercontent.com/sveriges-utbildningsradio/kuben_app_web/master/Assets/sparaText.png";
     };
 
     this.getBookmarkUrl = function(){
@@ -65,9 +67,12 @@ var UR = new function() {
         bookmarkButton.name = 'bookmark';
         bookmarkButton.id='bookmarkButton';
         bookmarkButton.style.display = 'inline-block';
-        bookmarkButton.style.backgroundRepeat='no-repeat';
-        bookmarkButton.style.padding = '22px 22px 22px 22px';
-        bookmarkButton.style.backgroundPosition = 'center center';
+        //bookmarkButton.style.backgroundRepeat='no-repeat';
+        //bookmarkButton.style.padding = '22px 22px 22px 22px';
+        bookmarkButton.style.height ='43px';
+        bookmarkButton.style.width ='74px';
+        bookmarkButton.style.backgroundSize = "74px 43px";
+        bookmarkButton.style.backgroundPosition = 'center';
         bookmarkButton.addEventListener('click', function() {
             if(UR.programIsBookmarkedFlag === false){
                 UR.Bookmark.save( UR.getBookmarkId() , UR.getBookmarkUrl() );
@@ -90,14 +95,16 @@ var UR = new function() {
 
     this.programIsBookmarked= function(){
         var bookmarkButton = document.getElementById('bookmarkButton');
-        bookmarkButton.style.backgroundImage = "url('https://cdn1.iconfinder.com/data/icons/fatcow/32x32/star.png')";
+        //bookmarkButton.style.backgroundImage = "url('https://cdn1.iconfinder.com/data/icons/fatcow/32x32/star.png')";
+        bookmarkButton.style.backgroundImage = "url('https://raw.githubusercontent.com/sveriges-utbildningsradio/kuben_app_web/master/Assets/sparatTextActive.png')";
         /*productButtons.style.backgroundImage = bookmarkedImage;*/
         UR.programIsBookmarkedFlag = true;
     };
 
     this.programIsNotBookmarked = function() {
         var bookmarkButton = document.getElementById('bookmarkButton');
-        bookmarkButton.style.backgroundImage = "url('http://png-5.findicons.com/files/icons/2227/picol/32/star_outline_32.png')";
+       // bookmarkButton.style.backgroundImage = "url('http://png-5.findicons.com/files/icons/2227/picol/32/star_outline_32.png')";
+        bookmarkButton.style.backgroundImage = "url('https://raw.githubusercontent.com/sveriges-utbildningsradio/kuben_app_web/master/Assets/sparaText.png')";
         /*bookmarkButton.style.backgroundImage = notBookmarkedImage;*/
         UR.programIsBookmarkedFlag = false;
     };
