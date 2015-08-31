@@ -141,10 +141,12 @@ var UR = new function() {
     this.onPageFinished = function() {
         /*hideURHeader();*/
         UR.removeUrHeader();
+        UR.allwaysShowCaptionBtn();
         UR.loadImages();
         UR.addBookmarkButton();
     };
-
+    
+    
     /* function that enables the UI element in the html page that shows that a page has been  bookmarked */
     this.showPageBookmarked = function() {
         console.info('showPageBookmarked');
@@ -167,7 +169,7 @@ var UR = new function() {
         if (typeof webkit === 'undefined' || typeof webkit.messageHandlers === 'undefined')
             return false;
 
-        var isIOS = userAgent.match(/iPad/i) || userAgent.match(/iPhone/i) || userAgent.match(/iPod/i);
+        var isIOS = true;
         return isIOS;
     };
 
@@ -271,7 +273,7 @@ var UR = new function() {
         save: function(pageId, pageUrl) {
             console.info("bookmark save pageId:" + pageId + " pageUrl:" + pageUrl);
             if (UR.isIOS()) {
-                /* save to IOS */
+                webkit.messageHandlers.saveBookmark.postMessage(pageUrl);
             } else if (UR.isAndroid()) {
                AndroidBookmark.save(pageId, pageUrl);
             }
@@ -287,7 +289,7 @@ var UR = new function() {
         remove: function(pageId, pageUrl) {
             console.info("bookmark remove pageId:" + pageId + " pageUrl:" + pageUrl);
             if (UR.isIOS()) {
-                /* call ios here */
+                webkit.messageHandlers.removeBookmark.postMessage(pageUrl);
             } else if (UR.isAndroid()) {
                 AndroidBookmark.remove(pageId, pageUrl);
             }
@@ -301,7 +303,7 @@ var UR = new function() {
         isBookmarked: function(pageId,pageUrl) {
             console.info("bookmark isBookmarked id:" + pageId);
             if (UR.isIOS()) {
-                /* call ios here */
+                webkit.messageHandlers.checkBookmarkStatus.postMessage(pageUrl);
             } else if (UR.isAndroid()) {
                 AndroidBookmark.isBookmarked(pageId,pageUrl);
             }
