@@ -1,93 +1,93 @@
 {  
-   products:{  
-      189895:{  
-         streamable:true,
-         http_streaming:{  
-            hd:{  
-               swe_complete:{  
-                  resolution:"1280x720",
-                  scope:"complete",
-                  language:"swe",
-                  location:"urplay/_definst_/mp4:189000-189999/189895-23.mp4/",
-                  bitrate:2600
+   "products":{  
+      "189895":{  
+         "streamable":true,
+         "http_streaming":{  
+            "hd":{  
+               "swe_complete":{  
+                  "resolution":"1280x720",
+                  "scope":"complete",
+                  "language":"swe",
+                  "location":"urplay/_definst_/mp4:189000-189999/189895-23.mp4/",
+                  "bitrate":2600
                },
-               raw:{  
-                  resolution:"1280x720",
-                  scope:null,
-                  language:null,
-                  location:"urplay/_definst_/mp4:189000-189999/189895-10.mp4/",
-                  bitrate:2600
+               "raw":{  
+                  "resolution":"1280x720",
+                  "scope":null,
+                  "language":null,
+                  "location":"urplay/_definst_/mp4:189000-189999/189895-10.mp4/",
+                  "bitrate":2600
                }
             },
-            files:{  
-               900:{  
-                  resolution:"640x360",
-                  location:"urplay/_definst_/mp4:189000-189999/189895-9.mp4/",
-                  bitrate:900
+            "files":{  
+               "900":{  
+                  "resolution":"640x360",
+                  "location":"urplay/_definst_/mp4:189000-189999/189895-9.mp4/",
+                  "bitrate":900
                }
             },
-            abr:{  
-               swe_complete:{  
-                  resolution:"640x360",
-                  scope:"complete",
-                  language:"swe",
-                  location:"urplay/_definst_/mp4:189000-189999/189895-22.mp4/",
-                  bitrate:850
+            "abr":{  
+               "swe_complete":{  
+                  "resolution":"640x360",
+                  "scope":"complete",
+                  "language":"swe",
+                  "location":"urplay/_definst_/mp4:189000-189999/189895-22.mp4/",
+                  "bitrate":850
                },
-               raw:{  
-                  resolution:"640x360",
-                  scope:null,
-                  language:null,
-                  location:"urplay/_definst_/mp4:189000-189999/189895-9.mp4/",
-                  bitrate:900
+               "raw":{  
+                  "resolution":"640x360",
+                  "scope":null,
+                  "language":null,
+                  "location":"urplay/_definst_/mp4:189000-189999/189895-9.mp4/",
+                  "bitrate":900
                }
             }
          },
-         enddate:"2016-02-19 23:59:59",
-         tt_subtitles:{  
-            swe_complete:{  
-               scope:"complete",
-               file:"189000-189999/189895-17.tt",
-               language:"swe",
-               uri:"http://undertexter.ur.se/189000-189999/189895-17.tt"
+         "enddate":"2016-02-19 23:59:59",
+         "tt_subtitles":{  
+            "swe_complete":{  
+               "scope":"complete",
+               "file":"189000-189999/189895-17.tt",
+               "language":"swe",
+               "uri":"http://undertexter.ur.se/189000-189999/189895-17.tt"
             }
          },
-         files:{  
-            700:{  
-               resolution:"640x360",
-               file:"189000-189999/189895-8.mp4",
-               bitrate:700
+         "files":{  
+            "700":{  
+               "resolution":"640x360",
+               "file":"189000-189999/189895-8.mp4",
+               "bitrate":700
             },
-            850:{  
-               resolution:"640x360",
-               file:"189000-189999/189895-7.mp4",
-               bitrate:850
+            "900":{  
+               "resolution":"640x360",
+               "file":"189000-189999/189895-9.mp4",
+               "bitrate":900
             },
-            900:{  
-               resolution:"640x360",
-               file:"189000-189999/189895-9.mp4",
-               bitrate:900
+            "2600":{  
+               "resolution":"1280x720",
+               "file":"189000-189999/189895-10.mp4",
+               "bitrate":2600
             },
-            2600:{  
-               resolution:"1280x720",
-               file:"189000-189999/189895-10.mp4",
-               bitrate:2600
+            "850":{  
+               "resolution":"640x360",
+               "file":"189000-189999/189895-7.mp4",
+               "bitrate":850
             }
          },
-         only_in_sweden:false
+         "only_in_sweden":false
       }
    },
-   config:{  
-      http_streaming:{  
-         hls_file:"playlist.m3u8",
-         hds_file:"manifest.f4m",
-         smooth_file:"Manifest"
+   "config":{  
+      "http_streaming":{  
+         "hls_file":"playlist.m3u8",
+         "hds_file":"manifest.f4m",
+         "smooth_file":"Manifest"
       },
-      tt_subtitles:{  
-         base_uri:"http://undertexter.ur.se/"
+      "tt_subtitles":{  
+         "base_uri":"http://undertexter.ur.se/"
       },
-      rtmp:{  
-         application:"urplay"
+      "rtmp":{  
+         "application":"urplay"
       }
    }
 }
