@@ -61,19 +61,38 @@ var UR = new function() {
             return;
         }
 
-        /* create bookmarkButton */
+        /* Create bookmarkButton
+            Note: Instead of adding style attribs to inline markup we should use appendChild(style)
+         */
+        
         bookmarkButton = document.createElement('button');
         bookmarkButton.type = 'button';
         bookmarkButton.name = 'bookmark';
         bookmarkButton.id='bookmarkButton';
         bookmarkButton.style.display = 'inline-block';
-        
-        //bookmarkButton.style.backgroundRepeat='no-repeat';
-        //bookmarkButton.style.padding = '22px 22px 22px 22px';
+        bookmarkButton.style.backgroundPosition = '10px center';
+        bookmarkButton.style.backgroundRepeat = 'no-repeat';
+        bookmarkButton.style.backgroundColor = '#dfe0e1';
+        bookmarkButton.style.paddingLeft = '43px';
+        bookmarkButton.style.padding = '12px 24px';
+        bookmarkButton.style.fontFamily = 'Open Sans';
+        bookmarkButton.style.borderRadius = '2px';
         bookmarkButton.style.height ='43px';
         bookmarkButton.style.width ='74px';
-        bookmarkButton.style.backgroundSize = "74px 43px";
-        bookmarkButton.style.backgroundPosition = 'center';
+        bookmarkButton.style.backgroundSize = "8px 12px";
+        bookmarkButton.style.fontSize = '1.4rem';
+        bookmarkButton.style.fontWeight = '600';
+        bookmarkButton.style.marginLeft = '0.4em';
+        
+    /* hover ?
+
+        bookmarkButton.addEventListener('mouseover', function() {
+             bookmarkButton.style.backgroundColor = '#6445ce';
+        });
+        bookmarkButton.addEventListener('mouseout', function() {
+            bookmarkButton.style.backgroundColor = '#dfe0e1';
+        });
+    */
         bookmarkButton.addEventListener('click', function() {
             if(UR.programIsBookmarkedFlag === false){
                 UR.Bookmark.save( UR.getBookmarkId() , UR.getBookmarkUrl() );
@@ -96,15 +115,13 @@ var UR = new function() {
 
     this.programIsBookmarked= function(){
         var bookmarkButton = document.getElementById('bookmarkButton');
-        bookmarkButton.style.backgroundImage = "url('https://raw.githubusercontent.com/sveriges-utbildningsradio/kuben_app_web/master/Assets/sparatTextActive.png')";
-        /*productButtons.style.backgroundImage = bookmarkedImage;*/
+        bookmarkButton.style.backgroundImage = "url('https://raw.githubusercontent.com/sveriges-utbildningsradio/kuben_app_web/master/Assets/shapeCopy4.png')";
         UR.programIsBookmarkedFlag = true;
     };
 
     this.programIsNotBookmarked = function() {
         var bookmarkButton = document.getElementById('bookmarkButton');
-        bookmarkButton.style.backgroundImage = "url('https://raw.githubusercontent.com/sveriges-utbildningsradio/kuben_app_web/master/Assets/sparaText.png')";
-        /*bookmarkButton.style.backgroundImage = notBookmarkedImage;*/
+        bookmarkButton.style.backgroundImage = "url('https://raw.githubusercontent.com/sveriges-utbildningsradio/kuben_app_web/master/Assets/shapeCopy3.png')";
         UR.programIsBookmarkedFlag = false;
     };
 
