@@ -116,12 +116,14 @@ var UR = new function() {
     this.programIsBookmarked= function(){
         var bookmarkButton = document.getElementById('bookmarkButton');
         bookmarkButton.style.backgroundImage = "url('https://raw.githubusercontent.com/sveriges-utbildningsradio/kuben_app_web/master/Assets/shapeCopy4.png')";
+        bookmarkButton.style.backgroundColor = '#00C896';
         UR.programIsBookmarkedFlag = true;
     };
 
     this.programIsNotBookmarked = function() {
         var bookmarkButton = document.getElementById('bookmarkButton');
         bookmarkButton.style.backgroundImage = "url('https://raw.githubusercontent.com/sveriges-utbildningsradio/kuben_app_web/master/Assets/shapeCopy3.png')";
+        bookmarkButton.style.backgroundColor = '#dfe0e1';
         UR.programIsBookmarkedFlag = false;
     };
 
