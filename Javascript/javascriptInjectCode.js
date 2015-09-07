@@ -67,6 +67,7 @@ var UR = new function() {
         bookmarkButton.name = 'bookmark';
         bookmarkButton.id='bookmarkButton';
         bookmarkButton.style.display = 'inline-block';
+        
         //bookmarkButton.style.backgroundRepeat='no-repeat';
         //bookmarkButton.style.padding = '22px 22px 22px 22px';
         bookmarkButton.style.height ='43px';
@@ -83,7 +84,7 @@ var UR = new function() {
             }
         });
 
-        var bookmarkButtonText = document.createTextNode("");
+        var bookmarkButtonText = document.createTextNode("Spara");
         bookmarkButton.appendChild(bookmarkButtonText);
 
         /*Add bookmarkButton to product-buttons*/
@@ -95,7 +96,6 @@ var UR = new function() {
 
     this.programIsBookmarked= function(){
         var bookmarkButton = document.getElementById('bookmarkButton');
-        //bookmarkButton.style.backgroundImage = "url('https://cdn1.iconfinder.com/data/icons/fatcow/32x32/star.png')";
         bookmarkButton.style.backgroundImage = "url('https://raw.githubusercontent.com/sveriges-utbildningsradio/kuben_app_web/master/Assets/sparatTextActive.png')";
         /*productButtons.style.backgroundImage = bookmarkedImage;*/
         UR.programIsBookmarkedFlag = true;
@@ -103,7 +103,6 @@ var UR = new function() {
 
     this.programIsNotBookmarked = function() {
         var bookmarkButton = document.getElementById('bookmarkButton');
-       // bookmarkButton.style.backgroundImage = "url('http://png-5.findicons.com/files/icons/2227/picol/32/star_outline_32.png')";
         bookmarkButton.style.backgroundImage = "url('https://raw.githubusercontent.com/sveriges-utbildningsradio/kuben_app_web/master/Assets/sparaText.png')";
         /*bookmarkButton.style.backgroundImage = notBookmarkedImage;*/
         UR.programIsBookmarkedFlag = false;
