@@ -136,6 +136,8 @@ var UR = new function() {
     /* Remove the UR navigation header from the webpage, this is not suppose to be visible in the APP */
     this.removeUrHeader = function() {
         console.info('running the removeUrHeader function');
+        
+        
         var urPageHeader = document.getElementById('masthead');
         if ((urPageHeader === undefined) || (urPageHeader === null) || urPageHeader.isEmptyObject) {
             console.error('can_t find the masthead ID on the page,can_t remove the UR header');
@@ -143,6 +145,13 @@ var UR = new function() {
         }
         document.body.removeChild(urPageHeader);
         document.body.style.paddingTop = '0px';
+    };
+    
+    this.manipulateURPlayer = function() {
+        
+        
+        
+        
     };
 
     /* Might be a faster way to remove the UR navigation header from the webpage, this is not suppose to be visible in the APP */
@@ -171,6 +180,8 @@ var UR = new function() {
         UR.allwaysShowCaptionBtn();
         UR.loadImages();
         UR.addBookmarkButton();
+        
+        UR.manipulateURPlayer();
     };
     
     

@@ -1,12 +1,23 @@
-[  
-   {  
-      product:{  
-         id:178324,
-         title:"Allti Kartong - sydsamiska : Fart",
-         description:"Robotarna Allti och Lilla Röd bygger om sin cykel för att få den att gå fortare, så att de kan vinna en cykeltävlig. Efter misslyckade försök med ett segel och en fläkt bygger de en raketmotor i kartong. Den fungerar tyvärr sämre än väntat. I cykeltävlingen deltar en enhjuling, en tandemcykel, en vanlig cykel, robotarnas raketcykel och en motionscykel.",
-         maintitle:"Allti Kartong - sydsamiska",
-         duration:"00:07:58",
-         product_type:"programtv"
-      }
+[
+ {
+   "product": {
+     "description": "När Sol var 11 år hände det ofattbara, hennes 20 månader yngre syster försvann under en cykeltur för att aldrig komma tillbaka. Det var den 5 april 2008. Systern hette Engla. Fallet med Engla skakade om hela Sverige och fick enorm uppmärksamhet i tv, tidningar och radio. Under veckan som gick, innan man visste vad som hänt, var Sol hemma för att skyddas från all uppståndelse. Hur går man vidare med sitt liv efter en traumatisk upplevelse? I dag kämpar Sol för att inte alltid bara bli bemött som Englas syster.",
+     "title": "Barnaministeriet dokumentär : Jag är Sol, Englas syster",
+     "maintitle": "Barnaministeriet dokumentär",
+     "id": 190283,
+     "product_type": "programradio",
+     "duration": "00:53:09",
+     "enddate": "2016-07-01 23:59:59",
+     "streamable": true,
+     "hls_streams": {
+       "hls": "http://ec2-54-228-247-59.eu-west-1.compute.amazonaws.com/urplay/_definst_/mp4:se/190000-190999/190181-24.mp4/playlist.m3u8?pid=faouaa&cid=urplay",
+       "hls_hd": "http://ec2-54-228-247-59.eu-west-1.compute.amazonaws.com/urplay/_definst_/mp4:se/190000-190999/190181-24.mp4/playlist.m3u8?pid=faouaa&cid=urplay"
+     },
+     "subtitles": {
+       "hls": "http://undertexter.ur.se/190000-190999/190181-17.tt",
+       "hls_se": "http://undertexter.ur.se/190000-190999/190181-17.tt",
+       "hls_hd_se": "http://undertexter.ur.se/190000-190999/190181-17.tt"
+     }
    }
+ }
 ]
