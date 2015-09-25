@@ -20,6 +20,113 @@ var UR = new function() {
     var bookmarkedImage;
     var notBookmarkedImage;
     var programIsBookmarkedFlag;
+
+    /* Get the page icon image eg "http://assets.ur.se/id/187968/images/1_l.jpg" */
+    this.getIconImage = function(){
+        var og = document.querySelector("meta[property='og:image']");
+        var ogImageUrl = og.getAttribute('content');
+        return ogImageUrl;
+    };
+
+    /* Get image object with the page icon image set */
+    this.getIconImageObject = function(){
+        var iconImage = document.createElement('img');
+        iconImage.type = 'img';
+        iconImage.name = 'programIcon';
+        iconImage.id='iconImage';
+     	iconImage.src=UR.getIconImage();
+     	return iconImage;
+    };
+
+    /* Remove JW player and add a static icon image with event listeners */
+    this.replaceJWPlayerUI = function(){
+        console.info("replaceJWPlayerUI");
+        var products = document.getElementsByClassName('product');
+        if ((products === undefined) || (products === null) || products.isEmptyObject ) {
+                console.error('can_t find the jwplayer ID on the page,can_t remove the jwplayer');
+                return;
+        }
+        var iconImage = document.getElementById('iconImage');
+        if ((iconImage === undefined) || (iconImage === null) || iconImage.isEmptyObject ) {
+        }else{
+            console.info('Has already added image');
+            return;
+        }
+
+        //HACK this is not a good solution but it works for now
+    	products[0].childNodes[1].firstChild.remove();
+    	products[0].childNodes[1].firstChild.remove();
+    	products[0].childNodes[1].firstChild.remove();
+    	products[0].childNodes[1].appendChild(UR.getIconImageObject());
+
+        //adding listners
+        UR.addIconListener();
+        UR.addCaptionListener();
+    };
+
+    /* Add a listener to the icon image to start the player */
+    this.addIconListener = function(){
+        var icon = document.getElementById('iconImage');
+            if ((icon === undefined) || (icon === null) || icon.isEmptyObject) {
+                console.error('can_t find the icon ID on the page,can_t add listener');
+                return;
+            }
+		icon.addEventListener("click", function(){
+			UR.startNativePlayer(UR.getPartialHlsUrl(),UR.getProgramId());
+		});
+    }
+
+    //Add a click listener to the language caption selection element for set "active" on the current choice
+    this.addCaptionListener = function(){
+        var captions = document.getElementsByClassName('captions');
+            if ((captions === undefined) || (captions === null) || captions.isEmptyObject) {
+                console.error('can_t find the captions ID on the page,can_t add captions listener');
+                return;
+            }
+            var listElements = captions[0].getElementsByTagName('li');
+            captions[0].addEventListener('click', function (event) {
+                    console.info(event.target);
+                    UR.activateChildNode(event.target);
+            }, false);
+    }
+
+    /* Utility function for activate the right language caption */
+    this.activateChildNode = function(dataId){
+        var captions = document.getElementsByClassName('captions');
+        if ((captions === undefined) || (captions === null) || captions.isEmptyObject) {
+                console.error('can_t find the captions ID on the page,can_t add captions listener');
+                return;
+        }
+
+            var listElements = captions[0].getElementsByTagName('li');
+            for (var index = 0; index < listElements.length; ++index) {
+                listElements[index].childNodes[1].setAttribute('class','');
+            }
+            dataId.setAttribute('class','active');
+    }
+
+    /* Get the url for the currently selected clip
+        eg "urplay/_definst_/mp4:se/187000-187999/187968-29.mp4/"
+    */
+    this.getPartialHlsUrl = function(){
+        var active = document.getElementsByClassName('active');
+        var url = active[0].getAttribute('data-stream');
+        return url
+    }
+
+    /* Start the media player */
+    this.startNativePlayer = function(partialHlsUrl,programId){
+ 	  console.info("Starting native player with url:"+partialHlsUrl + " program id:"+programId);
+      if(UR.isAndroid()){
+        AndroidMediaplayer.play(partialHlsUrl,programId);
+      }else if(UR.isIOS()){
+        /* start ios media player here =) */
+      }else{
+        console.error('unknown player environment')
+      }
+     }
+
+
     /* Preload the images for a smoother highlighting when a page is bookmarked */
     this.loadImages = function(){
         bookmarkedImage = new Image();
@@ -34,7 +141,7 @@ var UR = new function() {
         return document.baseURI;
     };
 
-    this.getBookmarkId = function(){
+    this.getProgramId = function(){
         //parsing the ID from a source that is not the baseUrl, in this case the image of the Open Graph
         var og = document.querySelector("meta[property='og:url']");
         var ogImageUrl = og.getAttribute('content');
@@ -95,9 +202,9 @@ var UR = new function() {
     */
         bookmarkButton.addEventListener('click', function() {
             if(UR.programIsBookmarkedFlag === false){
-                UR.Bookmark.save( UR.getBookmarkId() , UR.getBookmarkUrl() );
+                UR.Bookmark.save( UR.getProgramId() , UR.getBookmarkUrl() );
             }else if(UR.programIsBookmarkedFlag === true){
-                UR.Bookmark.remove( UR.getBookmarkId() , UR.getBookmarkUrl() );
+                UR.Bookmark.remove( UR.getProgramId() , UR.getBookmarkUrl() );
             }else{
                  console.info('can_t determine if the page is bookmarked, UR.programIsBookmarkedFlag:'+UR.programIsBookmarkedFlag);
             }
@@ -110,7 +217,7 @@ var UR = new function() {
         productButtons.appendChild(bookmarkButton)
 
         /* check program is already bookmarked */
-        UR.Bookmark.isBookmarked( UR.getBookmarkId(), UR.getBookmarkUrl() );
+        UR.Bookmark.isBookmarked( UR.getProgramId(), UR.getBookmarkUrl() );
     };
 
     this.programIsBookmarked= function(){
@@ -171,6 +278,7 @@ var UR = new function() {
         UR.allwaysShowCaptionBtn();
         UR.loadImages();
         UR.addBookmarkButton();
+        UR.replaceJWPlayerUI();
     };
     
     
