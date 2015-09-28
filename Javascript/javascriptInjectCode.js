@@ -124,7 +124,11 @@ var UR = new function() {
         return url + MANIFEST
     }
 
-    /* Start the media player */
+    /* Start the media player
+     @param partialHlsUrl hls address without media server eg "urplay/_definst_/mp4:se/187000-187999/187968-29.mp4/playlist.m3u8"
+     @param programId a valid program id
+     @param mediatype a valid program/product type
+     */
     this.startNativeMediaPlayer = function(partialHlsUrl,programId){
  	  console.info("Starting native player with url:"+partialHlsUrl + " program id:"+programId);
       if(UR.isAndroid()){
