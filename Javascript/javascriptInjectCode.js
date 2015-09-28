@@ -72,7 +72,7 @@ var UR = new function() {
                 return;
             }
 		icon.addEventListener("click", function(){
-			UR.startNativePlayer(UR.getPartialHlsUrl(),UR.getProgramId());
+			UR.startNativeMediaPlayer(UR.getPartialHlsUrl(),UR.getProgramId());
 		});
     }
 
@@ -97,25 +97,35 @@ var UR = new function() {
                 console.error('can_t find the captions ID on the page,can_t add captions listener');
                 return;
         }
-
-            var listElements = captions[0].getElementsByTagName('li');
-            for (var index = 0; index < listElements.length; ++index) {
-                listElements[index].childNodes[1].setAttribute('class','');
-            }
-            dataId.setAttribute('class','active');
+        var listElements = captions[0].getElementsByTagName('li');
+        for (var index = 0; index < listElements.length; ++index) {
+            listElements[index].childNodes[1].setAttribute('class','');
+        }
+        dataId.setAttribute('class','active');
     }
 
     /* Get the url for the currently selected clip
-        eg "urplay/_definst_/mp4:se/187000-187999/187968-29.mp4/"
+        eg "urplay/_definst_/mp4:se/187000-187999/187968-29.mp4/playlist.m3u8"
     */
     this.getPartialHlsUrl = function(){
         var active = document.getElementsByClassName('active');
         var url = active[0].getAttribute('data-stream');
-        return url
+        if ((url === undefined) || (url === null) || url.isEmptyObject) {
+                //get the first non-active text, if there is only ONE language eg "Ej textat" the is no active caption
+                var captionsElement = document.getElementsByClassName('captions');
+                url = captionsElement[0].getElementsByTagName('li')[0].getElementsByTagName('a')[0].getAttribute('data-stream');
+        }
+        if ((url === undefined) || (url === null) || url.isEmptyObject) {
+            console.error("Couldn't get the hls stream from the CAPTION web element");
+            return;
+        }
+
+        var MANIFEST = "playlist.m3u8";
+        return url + MANIFEST
     }
 
     /* Start the media player */
-    this.startNativePlayer = function(partialHlsUrl,programId){
+    this.startNativeMediaPlayer = function(partialHlsUrl,programId){
  	  console.info("Starting native player with url:"+partialHlsUrl + " program id:"+programId);
       if(UR.isAndroid()){
         AndroidMediaplayer.play(partialHlsUrl,programId);
