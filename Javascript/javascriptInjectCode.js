@@ -134,7 +134,12 @@ var UR = new function() {
       if(UR.isAndroid()){
         AndroidMediaplayer.play(partialHlsUrl,programId);
       }else if(UR.isIOS()){
-        /* start ios media player here =) */
+          streamData = {
+              'PartialHlsUrl':partialHlsUrl,
+              'ProgramId':programId
+          };
+          
+        webkit.messageHandlers.startNativeMediaPlayer.postMessage(streamData);
       }else{
         console.error('unknown player environment')
       }
