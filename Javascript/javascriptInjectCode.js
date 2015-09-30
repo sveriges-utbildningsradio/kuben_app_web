@@ -154,7 +154,9 @@ var UR = new function() {
       }else if(UR.isIOS()){
           streamData = {
               'PartialHlsUrl':partialHlsUrl,
-              'ProgramId':programId
+              'ProgramId':programId,
+              'PartialHD_HlsUrl':partialHD_HlsUrl,
+              'HlsAssociatedWebpage':hlsAssociatedWebpage
           };
           
         webkit.messageHandlers.startNativeMediaPlayer.postMessage(streamData);
