@@ -72,7 +72,7 @@ var UR = new function() {
                 return;
             }
 		icon.addEventListener("click", function(){
-			UR.startNativeMediaPlayer(UR.getPartialHlsUrl(),UR.getProgramId());
+			UR.startNativeMediaPlayer(UR.getPartialHlsUrl(),UR.getPartial_HD_HlsUrl(),UR.getProgramId(),UR.getPageUrl());
 		});
     }
 
@@ -124,15 +124,33 @@ var UR = new function() {
         return url + MANIFEST
     }
 
+    this.getPartial_HD_HlsUrl = function(){
+        var active = document.getElementsByClassName('active');
+        var url = active[0].getAttribute('data-hdstream');
+        if ((url === undefined) || (url === null) || url.isEmptyObject) {
+                //get the first non-active text, if there is only ONE language eg "Ej textat" the is no active caption
+                var captionsElement = document.getElementsByClassName('captions');
+                url = captionsElement[0].getElementsByTagName('li')[0].getElementsByTagName('a')[0].getAttribute('data-hdstream');
+        }
+        if ((url === undefined) || (url === null) || url.isEmptyObject) {
+            console.error("Couldn't get the HD hls stream from the CAPTION web element");
+            return;
+        }
+
+        var MANIFEST = "playlist.m3u8";
+        return url + MANIFEST
+    }
+
     /* Start the media player
      @param partialHlsUrl hls address without media server eg "urplay/_definst_/mp4:se/187000-187999/187968-29.mp4/playlist.m3u8"
+     @param partialHD_HlsUrl hls address without media server for HD eg "urplay/_definst_/mp4:se/187000-187999/187968-29.mp4/playlist.m3u8"
      @param programId a valid program id
-     @param mediatype a valid program/product type
+     @param hlsAssociatedWebpage a webpage that should be associated with the HLS information
      */
-    this.startNativeMediaPlayer = function(partialHlsUrl,programId){
- 	  console.info("Starting native player with url:"+partialHlsUrl + " program id:"+programId);
+    this.startNativeMediaPlayer = function(partialHlsUrl,partialHD_HlsUrl,programId,hlsAssociatedWebpage){
+ 	  console.info("Starting native player with url:"+partialHlsUrl + " partialHD_HlsUrl:"+partialHD_HlsUrl+" program id:"+programId+" hlsAssociatedWebpage:"+hlsAssociatedWebpage);
       if(UR.isAndroid()){
-        AndroidMediaplayer.play(partialHlsUrl,programId);
+        AndroidMediaplayer.play(partialHlsUrl,partialHD_HlsUrl,programId,hlsAssociatedWebpage);
       }else if(UR.isIOS()){
           streamData = {
               'PartialHlsUrl':partialHlsUrl,
@@ -168,6 +186,11 @@ var UR = new function() {
         var idString = ogImageUrl.match(re);
         return idString[0];
     };
+
+    this.getPageUrl = function(){
+        return document.baseURI;
+    }
+
 
     /* Add and show the bookmark button */
     this.addBookmarkButton= function(){
