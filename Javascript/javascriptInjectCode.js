@@ -205,7 +205,14 @@ var UR = new function() {
       if(UR.isAndroid()){
         AndroidMediaplayer.play(partialHlsUrl,partialHD_HlsUrl,programId,hlsAssociatedWebpage);
       }else if(UR.isIOS()){
-        /* start ios media player here =) */
+          streamData = {
+              'PartialHlsUrl':partialHlsUrl,
+              'ProgramId':programId,
+              'PartialHD_HlsUrl':partialHD_HlsUrl,
+              'HlsAssociatedWebpage':hlsAssociatedWebpage
+          };
+          
+        webkit.messageHandlers.startNativeMediaPlayer.postMessage(streamData);
       }else{
         console.error('unknown player environment')
       }
