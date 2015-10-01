@@ -108,16 +108,42 @@ var UR = new function() {
         eg "urplay/_definst_/mp4:se/187000-187999/187968-29.mp4/playlist.m3u8"
     */
     this.getPartialHlsUrl = function(){
-        var active = document.getElementsByClassName('active');
-        var url = active[0].getAttribute('data-stream');
-        if ((url === undefined) || (url === null) || url.isEmptyObject) {
-                //get the first non-active text, if there is only ONE language eg "Ej textat" the is no active caption
-                var captionsElement = document.getElementsByClassName('captions');
-                url = captionsElement[0].getElementsByTagName('li')[0].getElementsByTagName('a')[0].getAttribute('data-stream');
+        //Using the "captions" list of languages in the webpage to get the selected language,
+        //if no language is selected the first language in the list is used
+        var captions = document.getElementsByClassName('captions')[0];
+        if((captions === undefined) || (captions === null) || captions.isEmptyObject){
+            console.error("getPartialHlsUrl, can't find the caption element, can't get a hls url");
+            return null;
         }
+        var languageElement = captions.getElementsByClassName('active');
+        if((languageElement === undefined) || (languageElement === null) || languageElement .isEmptyObject){
+            console.info("getPartialHlsUrl, can't find a active language, will use the first language in the list");
+            languageElement = captions.firstElementChild.children;
+        }
+
+        var html = languageElement[0];
+        if ((html === undefined) || (html === null) || html.isEmptyObject) {
+            console.error("getPartialHlsUrl, can't get a find a list element to get language url, can't get a hls url");
+            return null;
+        }
+
+        var url = null;
+        try{
+            url = html.getAttribute('data-stream');
+        }catch(error){
+            if(error instanceof TypeError){
+                console.info("getPartialHlsUrl, got a "+( typeof error )+", this might happen");
+            }else{
+                console.info("getPartialHlsUrl, got a "+( typeof error )+", this should not happen");
+            }
+
+            console.error("getPartialHlsUrl, the attribute data-stream couldn't be found, can't get a hls url");
+            return null;
+        }
+
         if ((url === undefined) || (url === null) || url.isEmptyObject) {
-            console.error("Couldn't get the hls stream from the CAPTION web element");
-            return;
+            console.error("getPartialHlsUrl, Couldn't get the hls stream from the web element");
+            return null;
         }
 
         var MANIFEST = "playlist.m3u8";
@@ -125,20 +151,47 @@ var UR = new function() {
     }
 
     this.getPartial_HD_HlsUrl = function(){
-        var active = document.getElementsByClassName('active');
-        var url = active[0].getAttribute('data-hdstream');
-        if ((url === undefined) || (url === null) || url.isEmptyObject) {
-                //get the first non-active text, if there is only ONE language eg "Ej textat" the is no active caption
-                var captionsElement = document.getElementsByClassName('captions');
-                url = captionsElement[0].getElementsByTagName('li')[0].getElementsByTagName('a')[0].getAttribute('data-hdstream');
+        //Using the "captions" list of languages in the webpage to get the selected language,
+        //if no language is selected the first language in the list is used
+        var captions = document.getElementsByClassName('captions')[0];
+        if((captions === undefined) || (captions === null) || captions.isEmptyObject){
+            console.error("getPartialHlsUrl, can't find the caption element, can't get a hls url");
+            return null;
         }
+        var languageElement = captions.getElementsByClassName('active');
+        if((languageElement === undefined) || (languageElement === null) || languageElement .isEmptyObject){
+            console.info("getPartialHlsUrl, can't find a active language, will use the first language in the list");
+            languageElement = captions.firstElementChild.children;
+        }
+
+        var html = languageElement[0];
+        if ((html === undefined) || (html === null) || html.isEmptyObject) {
+            console.error("getPartialHlsUrl, can't get a find a list element to get language url, can't get a hls url");
+            return null;
+        }
+
+        var url = null;
+        try{
+            url = html.getAttribute('data-hdstream');
+        }catch(error){
+            if(error instanceof TypeError){
+                console.info("getPartialHlsUrl, got a "+( typeof error )+", this might happen");
+            }else{
+                console.info("getPartialHlsUrl, got a "+( typeof error )+", this should not happen");
+            }
+
+            console.error("getPartialHlsUrl, the attribute data-stream couldn't be found, can't get a hls url");
+            return null;
+        }
+
         if ((url === undefined) || (url === null) || url.isEmptyObject) {
-            console.error("Couldn't get the HD hls stream from the CAPTION web element");
-            return;
+            console.error("getPartialHlsUrl, Couldn't get the hls stream from the web element");
+            return null;
         }
 
         var MANIFEST = "playlist.m3u8";
         return url + MANIFEST
+
     }
 
     /* Start the media player
