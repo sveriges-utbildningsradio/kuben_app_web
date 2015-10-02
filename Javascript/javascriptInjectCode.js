@@ -54,6 +54,7 @@ var UR = new function() {
         }
 
         //HACK this is not a good solution but it works for now
+        //Fix a problem in Samsung Galaxy S3 Uncaught TypeError: Object #<Text> has no method 'remove':94
     	products[0].childNodes[1].firstChild.remove();
     	products[0].childNodes[1].firstChild.remove();
     	products[0].childNodes[1].firstChild.remove();
@@ -111,18 +112,29 @@ var UR = new function() {
         //Using the "captions" list of languages in the webpage to get the selected language,
         //if no language is selected the first language in the list is used
         var captions = document.getElementsByClassName('captions')[0];
-        if((captions === undefined) || (captions === null) || captions.isEmptyObject){
+        //var okLength = ( (captions!==undefined) && (captions!==null) && (captions.length!==0) );
+        if( (captions === undefined) || (captions === null) /*|| ( okLength===false )*/ ) {
             console.error("getPartialHlsUrl, can't find the caption element, can't get a hls url");
             return null;
         }
+
         var languageElement = captions.getElementsByClassName('active');
-        if((languageElement === undefined) || (languageElement === null) || languageElement .isEmptyObject){
+        var okLength = ( (languageElement!==undefined) && (languageElement!==null) && (languageElement.length!==0) );
+        if((languageElement === undefined) || (languageElement === null) || ( okLength===false ) ){
             console.info("getPartialHlsUrl, can't find a active language, will use the first language in the list");
             languageElement = captions.firstElementChild.children;
+
+            //var okLength = ( (languageElement!==undefined) && (languageElement!==null) && (languageElement.length!==0) );
+            if((languageElement === undefined) || (languageElement === null) /*|| ( okLength===false ) */){
+                console.error("getPartialHlsUrl, can't find a language element, can't get a HLS address");
+                return null;
+            }
+
         }
 
         var html = languageElement[0];
-        if ((html === undefined) || (html === null) || html.isEmptyObject) {
+        //var okLength = ( (html!==undefined) && (html!==null) && ( html.attributes.length!==0 ) );
+        if ((html === undefined) || (html === null) /* || ( okLength==false ) */ ) {
             console.error("getPartialHlsUrl, can't get a find a list element to get language url, can't get a hls url");
             return null;
         }
@@ -141,32 +153,48 @@ var UR = new function() {
             return null;
         }
 
-        if ((url === undefined) || (url === null) || url.isEmptyObject) {
+        if ((url === undefined) || (url === null) ) {
             console.error("getPartialHlsUrl, Couldn't get the hls stream from the web element");
             return null;
+        }
+        if(url.length===0){
+            console.info("getPartialHlsUrl, got a empty hls url, this is ok");
+            return ""
         }
 
         var MANIFEST = "playlist.m3u8";
         return url + MANIFEST
+
     }
 
     this.getPartial_HD_HlsUrl = function(){
         //Using the "captions" list of languages in the webpage to get the selected language,
         //if no language is selected the first language in the list is used
         var captions = document.getElementsByClassName('captions')[0];
-        if((captions === undefined) || (captions === null) || captions.isEmptyObject){
-            console.error("getPartialHlsUrl, can't find the caption element, can't get a hls url");
+        //var okLength = ( (captions!==undefined) && (captions!==null) && (captions.length!==0) );
+        if( (captions === undefined) || (captions === null) /*|| ( okLength===false )*/ ) {
+            console.error("getPartial_HD_HlsUrl, can't find the caption element, can't get a hls url");
             return null;
         }
+
         var languageElement = captions.getElementsByClassName('active');
-        if((languageElement === undefined) || (languageElement === null) || languageElement .isEmptyObject){
-            console.info("getPartialHlsUrl, can't find a active language, will use the first language in the list");
+        var okLength = ( (languageElement!==undefined) && (languageElement!==null) && (languageElement.length!==0) );
+        if((languageElement === undefined) || (languageElement === null) || ( okLength===false ) ){
+            console.info("getPartial_HD_HlsUrl, can't find a active language, will use the first language in the list");
             languageElement = captions.firstElementChild.children;
+
+            //var okLength = ( (languageElement!==undefined) && (languageElement!==null) && (languageElement.length!==0) );
+            if((languageElement === undefined) || (languageElement === null) /*|| ( okLength===false ) */){
+                console.error("getPartial_HD_HlsUrl, can't find a language element, can't get a HLS address");
+                return null;
+            }
+
         }
 
         var html = languageElement[0];
-        if ((html === undefined) || (html === null) || html.isEmptyObject) {
-            console.error("getPartialHlsUrl, can't get a find a list element to get language url, can't get a hls url");
+        //var okLength = ( (html!==undefined) && (html!==null) && ( html.attributes.length!==0 ) );
+        if ((html === undefined) || (html === null) /* || ( okLength==false ) */ ) {
+            console.error("getPartial_HD_HlsUrl, can't get a find a list element to get language url, can't get a hls url");
             return null;
         }
 
@@ -175,18 +203,22 @@ var UR = new function() {
             url = html.getAttribute('data-hdstream');
         }catch(error){
             if(error instanceof TypeError){
-                console.info("getPartialHlsUrl, got a "+( typeof error )+", this might happen");
+                console.info("getPartial_HD_HlsUrl, got a "+( typeof error )+", this might happen");
             }else{
-                console.info("getPartialHlsUrl, got a "+( typeof error )+", this should not happen");
+                console.info("getPartial_HD_HlsUrl, got a "+( typeof error )+", this should not happen");
             }
 
-            console.error("getPartialHlsUrl, the attribute data-stream couldn't be found, can't get a hls url");
+            console.error("getPartial_HD_HlsUrl, the attribute data-stream couldn't be found, can't get a hls url");
             return null;
         }
 
-        if ((url === undefined) || (url === null) || url.isEmptyObject) {
-            console.error("getPartialHlsUrl, Couldn't get the hls stream from the web element");
+        if ((url === undefined) || (url === null) ) {
+            console.error("getPartial_HD_HlsUrl, Couldn't get the hls stream from the web element");
             return null;
+        }
+        if(url.length===0){
+            console.info("getPartial_HD_HlsUrl, got a empty hls url, this is ok");
+            return ""
         }
 
         var MANIFEST = "playlist.m3u8";
