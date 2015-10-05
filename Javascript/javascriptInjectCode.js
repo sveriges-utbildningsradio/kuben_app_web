@@ -265,12 +265,32 @@ var UR = new function() {
         return document.baseURI;
     };
 
+    /**
+        Get the program ID from the IMAGE data from the OG data
+        @return a program ID or NULL if no ID was found
+    */
     this.getProgramId = function(){
-        //parsing the ID from a source that is not the baseUrl, in this case the image of the Open Graph
-        var og = document.querySelector("meta[property='og:url']");
+        //parsing the ID from a source that is not the baseUrl, in this case the IMAGE of the Open Graph
+        var og = document.querySelector("meta[property='og:image']");
         var ogImageUrl = og.getAttribute('content');
+
+        var parser = document.createElement('a');
+        parser.href = ogImageUrl;
+
+        //get the path part of the URL
+        var urlPath= parser.pathname;
+
+        //Check for expected url format
+        var expectedRe = new RegExp("/id/[0-9]{6}/images/");
+        var expectedUrl = ogImageUrl.match(expectedRe).toString();
+        if( (expectedUrl === null) || (expectedUrl === undefined) ){
+            console.error("Can't extract a ID, got an unexpected URL:"+ogImageUrl);
+            return null;
+        }
+
+        //found an expected format, get ID
         var re = new RegExp("[0-9]{6}");
-        var idString = ogImageUrl.match(re);
+        var idString = expectedUrl.match(re);
         return idString[0];
     };
 
