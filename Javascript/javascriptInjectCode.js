@@ -28,50 +28,18 @@ var UR = new function() {
         return ogImageUrl;
     };
 
-    /* Get image object with the page icon image set */
-    this.getIconImageObject = function(){
-        var iconImage = document.createElement('img');
-        iconImage.type = 'img';
-        iconImage.name = 'programIcon';
-        iconImage.id='iconImage';
-     	iconImage.src=UR.getIconImage();
-     	return iconImage;
-    };
-
-    /* Remove JW player and add a static icon image with event listeners */
-    this.replaceJWPlayerUI = function(){
-        console.info("replaceJWPlayerUI");
-        var products = document.getElementsByClassName('product');
-        if ((products === undefined) || (products === null) || products.isEmptyObject ) {
-                console.error('can_t find the jwplayer ID on the page,can_t remove the jwplayer');
-                return;
-        }
-        var iconImage = document.getElementById('iconImage');
-        if ((iconImage === undefined) || (iconImage === null) || iconImage.isEmptyObject ) {
-        }else{
-            console.info('Has already added image');
-            return;
-        }
-
-        //HACK this is not a good solution but it works for now
-        //Fix a problem in Samsung Galaxy S3 Uncaught TypeError: Object #<Text> has no method 'remove':94
-    	products[0].childNodes[1].firstChild.remove();
-    	products[0].childNodes[1].firstChild.remove();
-    	products[0].childNodes[1].firstChild.remove();
-    	products[0].childNodes[1].appendChild(UR.getIconImageObject());
-
-        //adding listners
-        UR.addIconListener();
-        UR.addCaptionListener();
-    };
-
     /* Add a listener to the icon image to start the player */
     this.addIconListener = function(){
-        var icon = document.getElementById('iconImage');
-            if ((icon === undefined) || (icon === null) || icon.isEmptyObject) {
-                console.error('can_t find the icon ID on the page,can_t add listener');
-                return;
-            }
+        console.info("addIconListener");
+        //var iconIsEmpty = (Object.keys(icon).length == 0);
+        var icon = document.getElementById('player-placeholder');
+        console.info("looking for player-placeholder:" +icon);
+        var iconIsInvalid = (icon===null || icon.length===0 || icon===undefined);
+
+        if (iconIsInvalid) {
+            console.error('can_t find the icon ID on the page,can_t add listener');
+            return;
+        }
 		icon.addEventListener("click", function(){
 			UR.startNativeMediaPlayer(UR.getPartialHlsUrl(),UR.getPartial_HD_HlsUrl(),UR.getProgramId(),UR.getPageUrl());
 		});
@@ -301,11 +269,9 @@ var UR = new function() {
 
     /* Add and show the bookmark button */
     this.addBookmarkButton= function(){
-        console.info('addBookmarkButton');
         var bookmarkbuttonExists = document.getElementById('bookmarkButton');
 
         if( typeof bookmarkbuttonExists !== 'undefined' && bookmarkbuttonExists !== null ){
-            console.info('bookmark button already found, will not add it again, bookmarkbuttonExists'+bookmarkbuttonExists);
             return;
         }
 
@@ -340,15 +306,6 @@ var UR = new function() {
         bookmarkButton.style.fontWeight = '600';
         bookmarkButton.style.marginLeft = '0.4em';
         
-    /* hover ?
-
-        bookmarkButton.addEventListener('mouseover', function() {
-             bookmarkButton.style.backgroundColor = '#6445ce';
-        });
-        bookmarkButton.addEventListener('mouseout', function() {
-            bookmarkButton.style.backgroundColor = '#dfe0e1';
-        });
-    */
         bookmarkButton.addEventListener('click', function() {
             if(UR.programIsBookmarkedFlag === false){
                 UR.Bookmark.save( UR.getProgramId() , UR.getBookmarkUrl() );
@@ -389,45 +346,17 @@ var UR = new function() {
         document.getElementsByName("captions")[0].style.display = "inline-block";
     };
 
-    /* Remove the UR navigation header from the webpage, this is not suppose to be visible in the APP */
-    this.removeUrHeader = function() {
-        console.info('running the removeUrHeader function');
-        var urPageHeader = document.getElementById('masthead');
-        if ((urPageHeader === undefined) || (urPageHeader === null) || urPageHeader.isEmptyObject) {
-            console.error('can_t find the masthead ID on the page,can_t remove the UR header');
-            return;
-        }
-        document.body.removeChild(urPageHeader);
-        document.body.style.paddingTop = '0px';
-    };
-
-    /* Might be a faster way to remove the UR navigation header from the webpage, this is not suppose to be visible in the APP */
-    this.hideURHeader = function() {
-        var urPageHeader = document.getElementById('masthead');
-        if ((urPageHeader === undefined) || (urPageHeader === null) || urPageHeader.isEmptyObject) {
-            console.error('can_t find the masthead ID on the page,can_t remove the UR header');
-            return;
-        }
-        urPageHeader.style.backgroundColor = "#000000";
-
-        var divContainer = document.getElementsByClassName('container');
-        if ((divContainer === undefined) || (divContainer === null) || divContainer.isEmptyObject) {
-            console.error('can_t find the divContainer on the page,can_t hide the UR header');
-            return;
-        } else {
-            console.info("Found container:" + divContainer);
-        }
-        divContainer[0].remove();
-    };
-
     /* Called when the page has finished loaded, might be called several times!! */
     this.onPageFinished = function() {
         /*hideURHeader();*/
-        UR.removeUrHeader();
         UR.allwaysShowCaptionBtn();
         UR.loadImages();
         UR.addBookmarkButton();
-        UR.replaceJWPlayerUI();
+
+        //adding listners
+        UR.addIconListener();
+        UR.addCaptionListener();
+
     };
     
     
