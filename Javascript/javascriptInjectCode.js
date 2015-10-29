@@ -20,6 +20,8 @@ var UR = new function() {
     var bookmarkedImage;
     var notBookmarkedImage;
     var programIsBookmarkedFlag;
+    var iconListenerAdded=false;
+    var captionListenerAdded=false;
 
     /* Get the page icon image eg "http://assets.ur.se/id/187968/images/1_l.jpg" */
     this.getIconImage = function(){
@@ -30,8 +32,8 @@ var UR = new function() {
 
     /* Add a listener to the icon image to start the player */
     this.addIconListener = function(){
-        console.info("addIconListener");
         //var iconIsEmpty = (Object.keys(icon).length == 0);
+
         var icon = document.getElementById('player-placeholder');
         console.info("looking for player-placeholder:" +icon);
         var iconIsInvalid = (icon===null || icon.length===0 || icon===undefined);
@@ -40,13 +42,27 @@ var UR = new function() {
             console.error('can_t find the icon ID on the page,can_t add listener');
             return;
         }
+
+        if( UR.iconListenerAdded===true ){
+            console.info("addIconListener,already added listener");
+            return;
+        }
+		UR.iconListenerAdded=true;
+
 		icon.addEventListener("click", function(){
 			UR.startNativeMediaPlayer(UR.getPartialHlsUrl(),UR.getPartial_HD_HlsUrl(),UR.getProgramId(),UR.getPageUrl());
 		});
+
     }
 
     //Add a click listener to the language caption selection element for set "active" on the current choice
     this.addCaptionListener = function(){
+        if( UR.captionListenerAdded===true ){
+            console.info("addCaptionListener,already added listener");
+            return;
+        }
+		UR.captionListenerAdded=true;
+
         var captions = document.getElementsByClassName('captions');
             if ((captions === undefined) || (captions === null) || captions.isEmptyObject) {
                 console.error('can_t find the captions ID on the page,can_t add captions listener');
