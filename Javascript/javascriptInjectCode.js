@@ -349,7 +349,7 @@ var UR = new function() {
         bookmarkButton.style.backgroundSize = "8px 12px";
         bookmarkButton.style.fontSize = '1.4rem';
         bookmarkButton.style.fontWeight = '600';
-        bookmarkButton.style.marginLeft = '0.4em';
+        //bookmarkButton.style.marginLeft = '0.4em';
         
         bookmarkButton.addEventListener('click', function() {
             if(UR.programIsBookmarkedFlag === false){
