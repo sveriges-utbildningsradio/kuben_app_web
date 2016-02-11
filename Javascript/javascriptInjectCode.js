@@ -306,7 +306,9 @@ var UR = new function() {
             //Embedded a svg image from betaplay.ur.se/assets/play-03cde168fd331625aa5b6997773f941c.svg
             //Seemed like a temporary link but gave a good quality so include the SVG here
             //button.style.backgroundImage='url("data:image/svg+xml;utf8,<svg version=\'1.1\' id=\'Lager_1\' xmlns=\'http://www.w3.org/2000/svg\' xmlns:xlink=\'http://www.w3.org/1999/xlink\' x=\'0px\' y=\'0px\'	 viewBox=\'0 0 100 100\' enable-background=\'new 0 0 100 100\' xml:space=\'preserve\' width=\'100\' height=\'100\'><circle opacity=\'0.4\' fill=\'#1D1D1B\' cx=\'50\' cy=\'50\' r=\'46\'/><path fill=\'#FFFFFF\' d=\'M50,0C22.4,0,0,22.4,0,50s22.4,50,50,50s50-22.4,50-50S77.6,0,50,0z M50,96C24.6,96,4,75.4,4,50S24.6,4,50,4	s46,20.6,46,46S75.4,96,50,96z\'/><polygon fill=\'#FFFFFF\' points=\'40.2,31.6 40.2,68.4 69,51.8 \'/></svg>")';
-            button.style.backgroundImage=url("data:image/svg+xml;utf8,"+$playArrowImage+"\")");
+            var bg='url("data:image/svg+xml;utf8,'+$playArrowImage+'\");';
+	    console.info("background:"+bg);
+	    button.style.backgroundImage='url("data:image/svg+xml;utf8,'+$playArrowImage+'\");';
             button.style.backgroundPosition = 'center';
             button.style.backgroundRepeat = 'no-repeat';
             containers[0].appendChild(button);
