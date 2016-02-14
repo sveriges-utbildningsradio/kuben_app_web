@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="71px" height="32px" viewBox="0 0 71 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: sketchtool 3.5.2 (25235) - http://www.bohemiancoding.com/sketch -->
+    <title>Sparat_text_active</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="Ikoner" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="ikoner_png" sketch:type="MSArtboardGroup" transform="translate(-230.000000, -295.000000)">
+            <g id="Sparat_text_active" sketch:type="MSLayerGroup" transform="translate(230.000000, 295.000000)">
+                <rect id="Rectangle-36" fill="#4DAC6F" sketch:type="MSShapeGroup" x="0" y="0" width="71" height="32" rx="4.26666667"></rect>
+                <path d="M11.6875,8.53333333 L20.1875,8.53333333 L20.1875,21.3333333 L15.9375,17.9809524 L11.6875,21.3333333 L11.6875,8.53333333 Z" id="Shape-Copy-2" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
+                <text id="Sparat" sketch:type="MSTextLayer" font-family="Apercu Pro" font-size="10.6666667" font-weight="420" fill="#FFFFFF">
+                    <tspan x="29" y="19">Sparat</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>
