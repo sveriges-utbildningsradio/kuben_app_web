@@ -78,7 +78,7 @@
         },
         {
             "type": "user_collections”,
-            "title": "Spellistor"
+            "title": "Spellistor",
             “collections”:[ 
                 {
                     “id”:  12,
