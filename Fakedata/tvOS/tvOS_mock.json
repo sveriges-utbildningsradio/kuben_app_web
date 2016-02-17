@@ -68,7 +68,7 @@
             ]
         },
         {
-            "type": "category_block"
+            "type": "category_block",
             "title": "Kategorier",
             "categories": [
                 "Språk",
