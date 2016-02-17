@@ -77,13 +77,13 @@
             ]
         },
         {
-            "type": "user_collections”,
+            "type": "user_collections",
             "title": "Spellistor",
-            “collections”:[ 
+            "collections":[ 
                 {
-                    “id”:  12,
-                    “image_url”: “jamboree.png1234”,
-                    “title”: "Fiska med Tjärna"
+                    "id":  12,
+                    "image_url": "jamboree.png1234",
+                    "title": "Fiska med Tjärna"
                     "program_list": [
                                         {
                                             "id": 193157,
