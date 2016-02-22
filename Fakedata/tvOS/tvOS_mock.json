@@ -47,6 +47,16 @@
                         "publication_timestamp": "2016-02-09T21:00:00.000Z"
                     }
                 ]
+            },{
+                "type": "category_block",
+                "title": "Kategorier",
+                "categories": [
+                    "Språk",
+                    "Barn",
+                    "Gnaget",
+                    "AIK STHLM",
+                    "Pjäx tv"
+                ]
             },
             {  
                 "type": "program_block",
@@ -81,18 +91,8 @@
                         "publication_timestamp": "2016-02-09T21:00:00.000Z"
                     }
                 ]
-            },
-            {
-                "type": "category_block",
-                "title": "Kategorier",
-                "categories": [
-                    "Språk",
-                    "Barn",
-                    "Gnaget",
-                    "AIK STHLM",
-                    "Pjäx tv"
-                ]
             }
+            
            
     ]
 }    
