@@ -59,8 +59,8 @@
                 ]
             },
             {  
-                "type": "program_block",
-                "title": "Gnaget bäst i stan",
+                "type": "block",
+                "title": "Populärt",
                 "program_list": [
                     {
                         "id": 192248,
