@@ -336,20 +336,6 @@ var UR = new function() {
         bookmarkButton.type = 'button';
         bookmarkButton.name = 'bookmark';
         bookmarkButton.id='bookmarkButton';
-        bookmarkButton.style.display = 'inline-block';
-        bookmarkButton.style.backgroundPosition = '10px center';
-        bookmarkButton.style.backgroundRepeat = 'no-repeat';
-        bookmarkButton.style.backgroundColor = '#dfe0e1';
-        bookmarkButton.style.paddingLeft = '43px';
-        bookmarkButton.style.padding = '12px 24px';
-        bookmarkButton.style.fontFamily = 'Open Sans';
-        bookmarkButton.style.borderRadius = '2px';
-        bookmarkButton.style.height ='43px';
-        bookmarkButton.style.width ='74px';
-        bookmarkButton.style.backgroundSize = "8px 12px";
-        bookmarkButton.style.fontSize = '1.4rem';
-        bookmarkButton.style.fontWeight = '600';
-        //bookmarkButton.style.marginLeft = '0.4em';
         
         bookmarkButton.addEventListener('click', function() {
             if(UR.programIsBookmarkedFlag === false){
