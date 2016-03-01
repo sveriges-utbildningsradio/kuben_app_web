@@ -344,6 +344,7 @@ var UR = new function() {
         bookmarkButton.style.padding = '12px 24px';
         bookmarkButton.style.fontFamily = 'Open Sans';
         bookmarkButton.style.borderRadius = '2px';
+        bookmarkButton.style.height ='41px';
         bookmarkButton.style.width ='74px';
         bookmarkButton.style.backgroundSize = "8px 12px";
         bookmarkButton.style.fontSize = '1.4rem';
