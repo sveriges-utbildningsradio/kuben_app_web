@@ -342,7 +342,6 @@ var UR = new function() {
         bookmarkButton.style.backgroundColor = '#dfe0e1';
         bookmarkButton.style.paddingLeft = '43px';
         bookmarkButton.style.padding = '12px 24px';
-        bookmarkButton.style.fontFamily = 'Open Sans';
         bookmarkButton.style.borderRadius = '2px';
         bookmarkButton.style.height ='41px';
         bookmarkButton.style.width ='74px';
