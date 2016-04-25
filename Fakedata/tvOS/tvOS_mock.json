@@ -1,414 +1,289 @@
-{
-    "first_page":
-        [
-            {
-                "type": "carousel",
-                "program_list": [
-                    {
-                        "id": 192242,
-                        "title": "Test 1",
-                        "description": "Science fiction är idag en av de största genrerna på bio, och både de teman och den estetik vi associerar till den kan härledas till Stanley Kubricks Science fiction-klassiker 2001: A Space Odyssey från 1968. När Harry mötte Sally från 1989 blev måttstock för den moderna romantiska komedin och japanska skräckfilmen Ringu från 1989 blåste nytt liv i skräckfilmsgenren.",
-                        "maintitle": "Scenerna som förändrade filmen",
-                        "duration": "00:28:53",
-                        "product_type": "programtv",
-                        "accessible_until": "2016-07-20T23:59:59.000Z",
-                        "remainderoftitle": "Genrer",
-                        "internationaltitle": null,
-                        "production_year": 2015,
-                        "publication_timestamp": "2016-01-20T22:00:00.000Z",
-                        "base64img": "ERVWRVWVWGLLGLGLRLÖÖEÖEÖÖÖÖÖÖGÖGÖ-AIK"
-                    },
-                    {
-                        "id": 192246,
-                        "base64img": "ERVWRVWVWGLLGLGLRLÖÖEÖEÖÖÖÖÖÖGÖGÖ-AIK",
-                        "title": "Gnaget från ovan : Solna",
-                        "description": "I Kambodja möter vi bland annat Apsara-dansare i huvudstaden Phnom Penh, bambutågen i Battambang och Angkor Vat, en av världens största tempelanläggningar. Under Pol Pots terrorregim dog omkring två miljoner människor. Vilka spår har regimen lämnat och på vilket sätt påverkar förbrytelserna fortfarande det kambodjanska samhället? Konstnären Lim Muy Theam berättar om sitt liv och konstnärskap och om sitt intresse för Kambodjas historia.",
-                        "maintitle": "Asien från ovan",
-                        "duration": "00:42:54",
-                        "product_type": "programtv",
-                        "accessible_until": "2016-08-16T23:59:59.000Z",
-                        "remainderoftitle": "Kambodja",
-                        "internationaltitle": "Asia from above",
-                        "production_year": 2014,
-                        "publication_timestamp": "2016-02-09T21:00:00.000Z"
-                    },
-                    {
-                        "id": 192247,
-                        "base64img": "ERVWRVWVWGLLGLGLRLÖÖEÖEÖÖÖÖÖÖGÖGÖ-AIK",
-                        "title": "Leffes berättar om bärs.",
-                        "description": "I Kambodja möter vi bland annat Apsara-dansare i huvudstaden Phnom Penh, bambutågen i Battambang och Angkor Vat, en av världens största tempelanläggningar. Under Pol Pots terrorregim dog omkring två miljoner människor. Vilka spår har regimen lämnat och på vilket sätt påverkar förbrytelserna fortfarande det kambodjanska samhället? Konstnären Lim Muy Theam berättar om sitt liv och konstnärskap och om sitt intresse för Kambodjas historia.",
-                        "maintitle": "Asien från ovan",
-                        "duration": "00:42:54",
-                        "product_type": "programtv",
-                        "accessible_until": "2016-08-16T23:59:59.000Z",
-                        "remainderoftitle": "Kambodja",
-                        "internationaltitle": "Asia from above",
-                        "production_year": 2014,
-                        "publication_timestamp": "2016-02-09T21:00:00.000Z"
-                    }
-                ]
-            },{
-                "type": "category_block",
-                "title": "Kategorier",
-                "categories": [
-                    "Dokumentär",
-                    "Vetenskap",
-                    "Barn",
-                    "Samhälle",
-                    "Kultur & Historia",
-                    "Språk"
-                ]
-            },
-            {  
-                "type": "block",
-                "title": "Populärt",
-                "program_list": [
-                    {
-                        "id": 192248,
-                        "base64img": "ERVWRVWVWGLLGLGLRLÖÖEÖEÖÖÖÖÖÖGÖGÖ-AIK",
-                        "title": "Asien från ovan : Kambodja",
-                        "description": "I Kambodja möter vi bland annat Apsara-dansare i huvudstaden Phnom Penh, bambutågen i Battambang och Angkor Vat, en av världens största tempelanläggningar. Under Pol Pots terrorregim dog omkring två miljoner människor. Vilka spår har regimen lämnat och på vilket sätt påverkar förbrytelserna fortfarande det kambodjanska samhället? Konstnären Lim Muy Theam berättar om sitt liv och konstnärskap och om sitt intresse för Kambodjas historia.",
-                        "maintitle": "Asien från ovan",
-                        "duration": "00:42:54",
-                        "product_type": "programtv",
-                        "accessible_until": "2016-08-16T23:59:59.000Z",
-                        "remainderoftitle": "Kambodja",
-                        "internationaltitle": "Asia from above",
-                        "production_year": 2014,
-                        "publication_timestamp": "2016-02-09T21:00:00.000Z"
-                    },
-                    {
-                        "id": 190797,
-                        "base64img": "ErrVWRVWVWGLLGLGLRLÖÖEÖEÖÖÖÖÖÖGÖGÖ-AIK",
-                        "title": "Asien från ovan : Kambodja",
-                        "description": "I Kambodja möter vi bland annat Apsara-dansare i huvudstaden Phnom Penh, bambutågen i Battambang och Angkor Vat, en av världens största tempelanläggningar. Under Pol Pots terrorregim dog omkring två miljoner människor. Vilka spår har regimen lämnat och på vilket sätt påverkar förbrytelserna fortfarande det kambodjanska samhället? Konstnären Lim Muy Theam berättar om sitt liv och konstnärskap och om sitt intresse för Kambodjas historia.",
-                        "maintitle": "Asien från ovan",
-                        "duration": "00:42:54",
-                        "product_type": "programtv",
-                        "accessible_until": "2016-08-16T23:59:59.000Z",
-                        "remainderoftitle": "Kambodja",
-                        "internationaltitle": "Asia from above",
-                        "production_year": 2014,
-                        "publication_timestamp": "2016-02-09T21:00:00.000Z"
-                    },
-                    {
-                        "id": 191657,
-                        "base64img": "ErrVWRVWVWGLLGLGLRLÖÖEÖEÖÖÖÖÖÖGÖGÖ-AIK",
-                        "title": "Asien från ovan : Kambodja",
-                        "description": "I Kambodja möter vi bland annat Apsara-dansare i huvudstaden Phnom Penh, bambutågen i Battambang och Angkor Vat, en av världens största tempelanläggningar. Under Pol Pots terrorregim dog omkring två miljoner människor. Vilka spår har regimen lämnat och på vilket sätt påverkar förbrytelserna fortfarande det kambodjanska samhället? Konstnären Lim Muy Theam berättar om sitt liv och konstnärskap och om sitt intresse för Kambodjas historia.",
-                        "maintitle": "Asien från ovan",
-                        "duration": "00:42:54",
-                        "product_type": "programtv",
-                        "accessible_until": "2016-08-16T23:59:59.000Z",
-                        "remainderoftitle": "Kambodja",
-                        "internationaltitle": "Asia from above",
-                        "production_year": 2014,
-                        "publication_timestamp": "2016-02-09T21:00:00.000Z"
-                    }
-                ]
-            },
-            {  
-                "type": "program_block",
-                "title": "Vi rekomenderar ",
-                "program_list": [
-                    {
-                        "id": 191318,
-                        "base64img": "ERVWRVWVWGLLGLGLRLÖÖEÖEÖÖÖÖÖÖGÖGÖ-AIK",
-                        "title": "Asien från ovan : Kambodja",
-                        "description": "I Kambodja möter vi bland annat Apsara-dansare i huvudstaden Phnom Penh, bambutågen i Battambang och Angkor Vat, en av världens största tempelanläggningar. Under Pol Pots terrorregim dog omkring två miljoner människor. Vilka spår har regimen lämnat och på vilket sätt påverkar förbrytelserna fortfarande det kambodjanska samhället? Konstnären Lim Muy Theam berättar om sitt liv och konstnärskap och om sitt intresse för Kambodjas historia.",
-                        "maintitle": "Asien från ovan",
-                        "duration": "00:42:54",
-                        "product_type": "programtv",
-                        "accessible_until": "2016-08-16T23:59:59.000Z",
-                        "remainderoftitle": "Kambodja",
-                        "internationaltitle": "Asia from above",
-                        "production_year": 2014,
-                        "publication_timestamp": "2016-02-09T21:00:00.000Z"
-                    },
-                    {
-                        "id": 191657,
-                        "base64img": "ERVWRVWVWGLLGLGLRLÖÖEÖEÖÖÖÖÖÖGÖGÖ-AIK",
-                        "title": "Asien från ovan : Kambodja",
-                        "description": "I Kambodja möter vi bland annat Apsara-dansare i huvudstaden Phnom Penh, bambutågen i Battambang och Angkor Vat, en av världens största tempelanläggningar. Under Pol Pots terrorregim dog omkring två miljoner människor. Vilka spår har regimen lämnat och på vilket sätt påverkar förbrytelserna fortfarande det kambodjanska samhället? Konstnären Lim Muy Theam berättar om sitt liv och konstnärskap och om sitt intresse för Kambodjas historia.",
-                        "maintitle": "Asien från ovan",
-                        "duration": "00:42:54",
-                        "product_type": "programtv",
-                        "accessible_until": "2016-08-16T23:59:59.000Z",
-                        "remainderoftitle": "Kambodja",
-                        "internationaltitle": "Asia from above",
-                        "production_year": 2014,
-                        "publication_timestamp": "2016-02-09T21:00:00.000Z"
-                    },
-                    {
-                        "id": 192248,
-                        "base64img": "ERVWRVWVWGLLGLGLRLÖÖEÖEÖÖÖÖÖÖGÖGÖ-AIK",
-                        "title": "Asien från ovan : Kambodja",
-                        "description": "I Kambodja möter vi bland annat Apsara-dansare i huvudstaden Phnom Penh, bambutågen i Battambang och Angkor Vat, en av världens största tempelanläggningar. Under Pol Pots terrorregim dog omkring två miljoner människor. Vilka spår har regimen lämnat och på vilket sätt påverkar förbrytelserna fortfarande det kambodjanska samhället? Konstnären Lim Muy Theam berättar om sitt liv och konstnärskap och om sitt intresse för Kambodjas historia.",
-                        "maintitle": "Asien från ovan",
-                        "duration": "00:42:54",
-                        "product_type": "programtv",
-                        "accessible_until": "2016-08-16T23:59:59.000Z",
-                        "remainderoftitle": "Kambodja",
-                        "internationaltitle": "Asia from above",
-                        "production_year": 2014,
-                        "publication_timestamp": "2016-02-09T21:00:00.000Z"
-                    },
-                    {
-                        "id": 192246,
-                        "base64img": "ERVWRVWVWGLLGLGLRLÖÖEÖEÖÖÖÖÖÖGÖGÖ-AIK",
-                        "title": "Asien från ovan : Kambodja",
-                        "description": "I Kambodja möter vi bland annat Apsara-dansare i huvudstaden Phnom Penh, bambutågen i Battambang och Angkor Vat, en av världens största tempelanläggningar. Under Pol Pots terrorregim dog omkring två miljoner människor. Vilka spår har regimen lämnat och på vilket sätt påverkar förbrytelserna fortfarande det kambodjanska samhället? Konstnären Lim Muy Theam berättar om sitt liv och konstnärskap och om sitt intresse för Kambodjas historia.",
-                        "maintitle": "Asien från ovan",
-                        "duration": "00:42:54",
-                        "product_type": "programtv",
-                        "accessible_until": "2016-08-16T23:59:59.000Z",
-                        "remainderoftitle": "Kambodja",
-                        "internationaltitle": "Asia from above",
-                        "production_year": 2014,
-                        "publication_timestamp": "2016-02-09T21:00:00.000Z"
-                    }
-                ]
-            },
-             {
-            
-                "type": "user_collections",
-                "title": "Spellistor",
-                "collections":[ 
-                                {
-                                "id":  12,
-                                "image_url": "jamboree.png1234",
-                                "title": "Fiska med Tjärna",
-                                "program_list": [
-                                                    {
-                                                        "id": 191442,
-                                                        "base64img": "ERVWRVWVWGLLGLGLRLÖÖEÖEÖÖÖÖÖÖGÖGÖ-AIK",
-                                                        "title": "Asien från ovan : Kambodja",
-                                                        "description": "I Kambodja möter vi bland annat Apsara-dansare i huvudstaden Phnom Penh, bambutågen i Battambang och Angkor Vat, en av världens största tempelanläggningar. Under Pol Pots terrorregim dog omkring två miljoner människor. Vilka spår har regimen lämnat och på vilket sätt påverkar förbrytelserna fortfarande det kambodjanska samhället? Konstnären Lim Muy Theam berättar om sitt liv och konstnärskap och om sitt intresse för Kambodjas historia.",
-                                                        "maintitle": "Asien från ovan",
-                                                        "duration": "00:42:54",
-                                                        "product_type": "programtv",
-                                                         "accessible_until": "2016-08-16T23:59:59.000Z",
-                                                         "remainderoftitle": "Kambodja",
-                                                         "internationaltitle": "Asia from above",
-                                                        "production_year": 2014,
-                                                        "publication_timestamp": "2016-02-09T21:00:00.000Z"
-                                                        
-                                                    },
-                                                    {
-                                                        "id": 191442,
-                                                        "base64img": "ERVWRVWVWGLLGLGLRLÖÖEÖEÖÖÖÖÖÖGÖGÖ-AIK",
-                                                        "title": "Asien från ovan : Kambodja",
-                                                        "description": "I Kambodja möter vi bland annat Apsara-dansare i huvudstaden Phnom Penh, bambutågen i Battambang och Angkor Vat, en av världens största tempelanläggningar. Under Pol Pots terrorregim dog omkring två miljoner människor. Vilka spår har regimen lämnat och på vilket sätt påverkar förbrytelserna fortfarande det kambodjanska samhället? Konstnären Lim Muy Theam berättar om sitt liv och konstnärskap och om sitt intresse för Kambodjas historia.",
-                                                        "maintitle": "Asien från ovan",
-                                                        "duration": "00:42:54",
-                                                        "product_type": "programtv",
-                                                         "accessible_until": "2016-08-16T23:59:59.000Z",
-                                                         "remainderoftitle": "Kambodja",
-                                                         "internationaltitle": "Asia from above",
-                                                        "production_year": 2014,
-                                                        "publication_timestamp": "2016-02-09T21:00:00.000Z"
-                                                        
-                                                    }
-                                                ]
-                                },
-                                {
-                                "id":  12,
-                                "image_url": "jamboree.png1234",
-                                "title": "Ryska risodlare",
-                                "program_list": [
-                                                    {
-                                                        "id": 191442,
-                                                        "base64img": "ERVWRVWVWGLLGLGLRLÖÖEÖEÖÖÖÖÖÖGÖGÖ-AIK",
-                                                        "title": "Asien från ovan : Kambodja",
-                                                        "description": "I Kambodja möter vi bland annat Apsara-dansare i huvudstaden Phnom Penh, bambutågen i Battambang och Angkor Vat, en av världens största tempelanläggningar. Under Pol Pots terrorregim dog omkring två miljoner människor. Vilka spår har regimen lämnat och på vilket sätt påverkar förbrytelserna fortfarande det kambodjanska samhället? Konstnären Lim Muy Theam berättar om sitt liv och konstnärskap och om sitt intresse för Kambodjas historia.",
-                                                        "maintitle": "Asien från ovan",
-                                                        "duration": "00:42:54",
-                                                        "product_type": "programtv",
-                                                         "accessible_until": "2016-08-16T23:59:59.000Z",
-                                                         "remainderoftitle": "Kambodja",
-                                                         "internationaltitle": "Asia from above",
-                                                        "production_year": 2014,
-                                                        "publication_timestamp": "2016-02-09T21:00:00.000Z"
-                                                        
-                                                    },
-                                                    {
-                                                        "id": 191442,
-                                                        "base64img": "ERVWRVWVWGLLGLGLRLÖÖEÖEÖÖÖÖÖÖGÖGÖ-AIK",
-                                                        "title": "Asien från ovan : Kambodja",
-                                                        "description": "I Kambodja möter vi bland annat Apsara-dansare i huvudstaden Phnom Penh, bambutågen i Battambang och Angkor Vat, en av världens största tempelanläggningar. Under Pol Pots terrorregim dog omkring två miljoner människor. Vilka spår har regimen lämnat och på vilket sätt påverkar förbrytelserna fortfarande det kambodjanska samhället? Konstnären Lim Muy Theam berättar om sitt liv och konstnärskap och om sitt intresse för Kambodjas historia.",
-                                                        "maintitle": "Asien från ovan",
-                                                        "duration": "00:42:54",
-                                                        "product_type": "programtv",
-                                                         "accessible_until": "2016-08-16T23:59:59.000Z",
-                                                         "remainderoftitle": "Kambodja",
-                                                         "internationaltitle": "Asia from above",
-                                                        "production_year": 2014,
-                                                        "publication_timestamp": "2016-02-09T21:00:00.000Z"
-                                                        
-                                                    }
-                                                ]
-                                },
-                                {
-                                "id":  12,
-                                "image_url": "jamboree.png1234",
-                                "title": "Anfalls fiske",
-                                "program_list": [
-                                                    {
-                                                        "id": 191442,
-                                                        "base64img": "ERVWRVWVWGLLGLGLRLÖÖEÖEÖÖÖÖÖÖGÖGÖ-AIK",
-                                                        "title": "Asien från ovan : Kambodja",
-                                                        "description": "I Kambodja möter vi bland annat Apsara-dansare i huvudstaden Phnom Penh, bambutågen i Battambang och Angkor Vat, en av världens största tempelanläggningar. Under Pol Pots terrorregim dog omkring två miljoner människor. Vilka spår har regimen lämnat och på vilket sätt påverkar förbrytelserna fortfarande det kambodjanska samhället? Konstnären Lim Muy Theam berättar om sitt liv och konstnärskap och om sitt intresse för Kambodjas historia.",
-                                                        "maintitle": "Asien från ovan",
-                                                        "duration": "00:42:54",
-                                                        "product_type": "programtv",
-                                                         "accessible_until": "2016-08-16T23:59:59.000Z",
-                                                         "remainderoftitle": "Kambodja",
-                                                         "internationaltitle": "Asia from above",
-                                                        "production_year": 2014,
-                                                        "publication_timestamp": "2016-02-09T21:00:00.000Z"
-                                                        
-                                                    },
-                                                    {
-                                                        "id": 191442,
-                                                        "base64img": "ERVWRVWVWGLLGLGLRLÖÖEÖEÖÖÖÖÖÖGÖGÖ-AIK",
-                                                        "title": "Asien från ovan : Kambodja",
-                                                        "description": "I Kambodja möter vi bland annat Apsara-dansare i huvudstaden Phnom Penh, bambutågen i Battambang och Angkor Vat, en av världens största tempelanläggningar. Under Pol Pots terrorregim dog omkring två miljoner människor. Vilka spår har regimen lämnat och på vilket sätt påverkar förbrytelserna fortfarande det kambodjanska samhället? Konstnären Lim Muy Theam berättar om sitt liv och konstnärskap och om sitt intresse för Kambodjas historia.",
-                                                        "maintitle": "Asien från ovan",
-                                                        "duration": "00:42:54",
-                                                        "product_type": "programtv",
-                                                         "accessible_until": "2016-08-16T23:59:59.000Z",
-                                                         "remainderoftitle": "Kambodja",
-                                                         "internationaltitle": "Asia from above",
-                                                        "production_year": 2014,
-                                                        "publication_timestamp": "2016-02-09T21:00:00.000Z"
-                                                        
-                                                    }
-                                                ]
-                                }
-  
-                            ]
-            },
-            {
-            
-                "type": "playlist_block",
-                "title": "Serier",
-                "collections":[ 
-                                {
-                                "id":  191067,
-                                "image_url": "jamboree.png1234",
-                                "title": "Nisses bilbana",
-                                "program_list": [
-                                                    {
-                                                        "id": 191442,
-                                                        "base64img": "ERVWRVWVWGLLGLGLRLÖÖEÖEÖÖÖÖÖÖGÖGÖ-AIK",
-                                                        "title": "Asien från ovan : Kambodja",
-                                                        "description": "I Kambodja möter vi bland annat Apsara-dansare i huvudstaden Phnom Penh, bambutågen i Battambang och Angkor Vat, en av världens största tempelanläggningar. Under Pol Pots terrorregim dog omkring två miljoner människor. Vilka spår har regimen lämnat och på vilket sätt påverkar förbrytelserna fortfarande det kambodjanska samhället? Konstnären Lim Muy Theam berättar om sitt liv och konstnärskap och om sitt intresse för Kambodjas historia.",
-                                                        "maintitle": "Asien från ovan",
-                                                        "duration": "00:42:54",
-                                                        "product_type": "programtv",
-                                                         "accessible_until": "2016-08-16T23:59:59.000Z",
-                                                         "remainderoftitle": "Kambodja",
-                                                         "internationaltitle": "Asia from above",
-                                                        "production_year": 2014,
-                                                        "publication_timestamp": "2016-02-09T21:00:00.000Z"
-                                                        
-                                                    },
-                                                    {
-                                                        "id": 191657,
-                                                        "base64img": "ERVWRVWVWGLLGLGLRLÖÖEÖEÖÖÖÖÖÖGÖGÖ-AIK",
-                                                        "title": "Asien från ovan : Kambodja",
-                                                        "description": "I Kambodja möter vi bland annat Apsara-dansare i huvudstaden Phnom Penh, bambutågen i Battambang och Angkor Vat, en av världens största tempelanläggningar. Under Pol Pots terrorregim dog omkring två miljoner människor. Vilka spår har regimen lämnat och på vilket sätt påverkar förbrytelserna fortfarande det kambodjanska samhället? Konstnären Lim Muy Theam berättar om sitt liv och konstnärskap och om sitt intresse för Kambodjas historia.",
-                                                        "maintitle": "Asien från ovan",
-                                                        "duration": "00:42:54",
-                                                        "product_type": "programtv",
-                                                         "accessible_until": "2016-08-16T23:59:59.000Z",
-                                                         "remainderoftitle": "Kambodja",
-                                                         "internationaltitle": "Asia from above",
-                                                        "production_year": 2014,
-                                                        "publication_timestamp": "2016-02-09T21:00:00.000Z"
-                                                        
-                                                    }
-                                                ]
-                                },
-                                {
-                                "id":  190797,
-                                "image_url": "jamboree.png1234",
-                                "title": "Surf and turf ",
-                                "program_list": [
-                                                    {
-                                                        "id": 191442,
-                                                        "base64img": "ERVWRVWVWGLLGLGLRLÖÖEÖEÖÖÖÖÖÖGÖGÖ-AIK",
-                                                        "title": "Asien från ovan : Kambodja",
-                                                        "description": "I Kambodja möter vi bland annat Apsara-dansare i huvudstaden Phnom Penh, bambutågen i Battambang och Angkor Vat, en av världens största tempelanläggningar. Under Pol Pots terrorregim dog omkring två miljoner människor. Vilka spår har regimen lämnat och på vilket sätt påverkar förbrytelserna fortfarande det kambodjanska samhället? Konstnären Lim Muy Theam berättar om sitt liv och konstnärskap och om sitt intresse för Kambodjas historia.",
-                                                        "maintitle": "Asien från ovan",
-                                                        "duration": "00:42:54",
-                                                        "product_type": "programtv",
-                                                         "accessible_until": "2016-08-16T23:59:59.000Z",
-                                                         "remainderoftitle": "Kambodja",
-                                                         "internationaltitle": "Asia from above",
-                                                        "production_year": 2014,
-                                                        "publication_timestamp": "2016-02-09T21:00:00.000Z"
-                                                        
-                                                    },
-                                                    {
-                                                        "id": 191657,
-                                                        "base64img": "ERVWRVWVWGLLGLGLRLÖÖEÖEÖÖÖÖÖÖGÖGÖ-AIK",
-                                                        "title": "Asien från ovan : Kambodja",
-                                                        "description": "I Kambodja möter vi bland annat Apsara-dansare i huvudstaden Phnom Penh, bambutågen i Battambang och Angkor Vat, en av världens största tempelanläggningar. Under Pol Pots terrorregim dog omkring två miljoner människor. Vilka spår har regimen lämnat och på vilket sätt påverkar förbrytelserna fortfarande det kambodjanska samhället? Konstnären Lim Muy Theam berättar om sitt liv och konstnärskap och om sitt intresse för Kambodjas historia.",
-                                                        "maintitle": "Asien från ovan",
-                                                        "duration": "00:42:54",
-                                                        "product_type": "programtv",
-                                                         "accessible_until": "2016-08-16T23:59:59.000Z",
-                                                         "remainderoftitle": "Kambodja",
-                                                         "internationaltitle": "Asia from above",
-                                                        "production_year": 2014,
-                                                        "publication_timestamp": "2016-02-09T21:00:00.000Z"
-                                                        
-                                                    }
-                                                ]
-                                },
-                                {
-                                "id":  191442,
-                                "image_url": "jamboree.png1234",
-                                "title": "Den magiska lampan ",
-                                "program_list": [
-                                                    {
-                                                        "id": 191442,
-                                                        "base64img": "ERVWRVWVWGLLGLGLRLÖÖEÖEÖÖÖÖÖÖGÖGÖ-AIK",
-                                                        "title": "Asien från ovan : Kambodja",
-                                                        "description": "I Kambodja möter vi bland annat Apsara-dansare i huvudstaden Phnom Penh, bambutågen i Battambang och Angkor Vat, en av världens största tempelanläggningar. Under Pol Pots terrorregim dog omkring två miljoner människor. Vilka spår har regimen lämnat och på vilket sätt påverkar förbrytelserna fortfarande det kambodjanska samhället? Konstnären Lim Muy Theam berättar om sitt liv och konstnärskap och om sitt intresse för Kambodjas historia.",
-                                                        "maintitle": "Asien från ovan",
-                                                        "duration": "00:42:54",
-                                                        "product_type": "programtv",
-                                                         "accessible_until": "2016-08-16T23:59:59.000Z",
-                                                         "remainderoftitle": "Kambodja",
-                                                         "internationaltitle": "Asia from above",
-                                                        "production_year": 2014,
-                                                        "publication_timestamp": "2016-02-09T21:00:00.000Z"
-                                                        
-                                                    },
-                                                    {
-                                                        "id": 191657,
-                                                        "base64img": "ERVWRVWVWGLLGLGLRLÖÖEÖEÖÖÖÖÖÖGÖGÖ-AIK",
-                                                        "title": "Asien från ovan : Kambodja",
-                                                        "description": "I Kambodja möter vi bland annat Apsara-dansare i huvudstaden Phnom Penh, bambutågen i Battambang och Angkor Vat, en av världens största tempelanläggningar. Under Pol Pots terrorregim dog omkring två miljoner människor. Vilka spår har regimen lämnat och på vilket sätt påverkar förbrytelserna fortfarande det kambodjanska samhället? Konstnären Lim Muy Theam berättar om sitt liv och konstnärskap och om sitt intresse för Kambodjas historia.",
-                                                        "maintitle": "Asien från ovan",
-                                                        "duration": "00:42:54",
-                                                        "product_type": "programtv",
-                                                         "accessible_until": "2016-08-16T23:59:59.000Z",
-                                                         "remainderoftitle": "Kambodja",
-                                                         "internationaltitle": "Asia from above",
-                                                        "production_year": 2014,
-                                                        "publication_timestamp": "2016-02-09T21:00:00.000Z"
-                                                        
-                                                    }
-                                                ]
-                                }
-  
-                            ]
-            }
-            
-           
-    ]
-}    
-
+[  
+   {  
+      "title":"Testkarusell",
+      "type":"ProgramBlock",
+      "block_type":"carousel",
+      "products":[  
+         {  
+            "ur_asset_id":192247,
+            "title":"Roll­fi­gu­rer::Petter",
+            "description":"asdasdasd",
+            "duration":"00:29:00",
+            "product_type":"programtv",
+            "episode_info":"Avsnitt 3/8"
+         },
+         {  
+            "ur_asset_id":182344,
+            "title":"Fåraherdar i extrema miljöer : Afghanistan",
+            "description":"Vi åker till Kabul och Wakhan Corridor i Afghanistan och träffar några av de mest traditionella herdarna i världen, som är helt beroende av sina djur för att överleva. Vi får se hur det går till att göra ost av getmjölk och följa med när hela lägret flyttar för vintern.",
+            "duration":"00:52:03",
+            "product_type":"programtv",
+            "episode_info":"Avsnitt 1/3"
+         },
+         {  
+            "ur_asset_id":191680,
+            "title":"UR Samtiden - Bokmässan 2015 : Läkande kemi och självbiografi",
+            "description":"Hör om ökad medellivslängd och serietecknande som terapi.",
+            "duration":"00:17:46",
+            "product_type":"programtv",
+            "episode_info":""
+         },
+         {  
+            "ur_asset_id":190446,
+            "title":"Alors demande ! : La gastronomie",
+            "description":"I Lyon försöker vi få reda på svaret på frågan: Vad är gastronomi?",
+            "duration":"00:09:36",
+            "product_type":"programtv",
+            "episode_info":"Avsnitt 5/8"
+         }
+      ]
+   },
+   {  
+      "type":"Categories",
+      "items":[  
+         "Dokumentärfilmer",
+         "Föreläsningar",
+         "Vetenskap",
+         "Kultur och historia",
+         "Samhälle",
+         "Reality och livsstil",
+         "Barn"
+      ]
+   },
+   {  
+      "title":"AIK",
+      "type":"ProgramBlock",
+      "block_type":"default",
+      "products":[  
+         {  
+            "ur_asset_id":190288,
+            "title":"Kortfilmsklubben - finska : Kääntöpaikka",
+            "description":"jamboree",
+            "duration":"00:09:31",
+            "product_type":"programtv",
+            "episode_info":""
+         },
+         {  
+            "ur_asset_id":193289,
+            "title":"#lovemilla : Artisti paikalla",
+            "description":"Vem är killen i rutig skjorta?",
+            "duration":"00:03:52",
+            "product_type":"programtv",
+            "episode_info":""
+         },
+         {  
+            "ur_asset_id":191728,
+            "title":"#lovemilla : Työpaikkahaastattelu",
+            "description":"Milla är på anställningsintervju på Café Robot. Det känns nervöst.",
+            "duration":"00:05:18",
+            "product_type":"programtv",
+            "episode_info":""
+         },
+         {  
+            "ur_asset_id":190287,
+            "title":"Kortfilmsklubben - finska : Pitääkö mun kaikki hoitaa?",
+            "description":"En kaotisk morgon hos en barnfamilj som försovit sig.",
+            "duration":"00:06:52",
+            "product_type":"programtv",
+            "episode_info":""
+         },
+         {  
+            "ur_asset_id":192852,
+            "title":"UR Samtiden - Ett gott hem för alla : Katarina Taikon och Björn Langhammers arbete",
+            "description":"Vem var Björn Langhammer?",
+            "duration":"00:13:45",
+            "product_type":"programtv",
+            "episode_info":""
+         },
+         {  
+            "ur_asset_id":190288,
+            "title":"Kortfilmsklubben - finska : Kääntöpaikka",
+            "description":"Tolvåriga Sini stämmer möte med en man hon träffat på nätet.",
+            "duration":"00:09:31",
+            "product_type":"programtv",
+            "episode_info":""
+         }
+      ]
+   },
+   {  
+      "title":"Sista chansen",
+      "type":"SolrQuery",
+      "products":[  
+         {  
+            "ur_asset_id":182061,
+            "title":"Bildningsbyrån - rasism : Det diskriminerande samhället",
+            "maintitle":"Bildningsbyrån - rasism",
+            "remainderoftitle":"Det diskriminerande samhället",
+            "description":"Hör om teorier som försöker förklara hur diskriminering uppstår.",
+            "product_type":"programradio",
+            "duration":"00:24:18",
+            "episode_info":"Avsnitt 3/4"
+         },
+         {  
+            "ur_asset_id":180967,
+            "title":"Cirkuskiosken : Vintern är slut och Tiggycirkus",
+            "maintitle":"Cirkuskiosken",
+            "remainderoftitle":"Vintern är slut och Tiggycirkus",
+            "description":"När Gordon och Tiggy ska ut och åka störtlopp visar det sig att all snö har smält bort. Och om man inte duger åt en cirkus, kan man ju alltid starta en egen - där alla får vara med!",
+            "product_type":"programtv",
+            "duration":"00:10:00",
+            "episode_info":""
+         },
+         {  
+            "ur_asset_id":183656,
+            "title":"Bästa bokstaven : G",
+            "maintitle":"Bästa bokstaven",
+            "remainderoftitle":"G",
+            "description":"G är glad och god.",
+            "product_type":"programtv",
+            "duration":"00:04:25",
+            "episode_info":"Avsnitt 7/26"
+         },
+         {  
+            "ur_asset_id":188680,
+            "title":"Pinos dagbok : Pino är hungrig",
+            "maintitle":"Pinos dagbok",
+            "remainderoftitle":"Pino är hungrig",
+            "description":"Pino ska laga mat.",
+            "product_type":"programtv",
+            "duration":"00:04:33",
+            "episode_info":"Avsnitt 19/20"
+         }
+      ]
+   },
+   {  
+      "title":"Barnserier - mest delade",
+      "type":"SolrQuery",
+      "products":[  
+         {  
+            "ur_asset_id":161123,
+            "title":"Välj språk!",
+            "description":"Presentation av de språk som elever i årskurs 5 väljer mellan - franska, spanska och tyska. Vad är spännande med de respektive språken? Var talas de? Och vad är hela poängen med att läsa dem? Vi följer tolvåriga Klara när hon ställs inför språkvalet. För att få en fördjupad förståelse för betydelsen av att tala ytterligare ett språk får hon lära sig hur länder och kulturer har influerat varandra samtidigt som hon lotsas mellan myter och förutfattade meningar.",
+            "product_type":"packageseries",
+            "accessible_episodes_count":4
+         },
+         {  
+            "ur_asset_id":192399,
+            "title":"Lilla Aktuellt skola",
+            "description":"Nyheter för barn och ungdomar om veckans viktigaste händelser.",
+            "product_type":"packageseries",
+            "accessible_episodes_count":8
+         },
+         {  
+            "ur_asset_id":168960,
+            "title":"Pinos dagbok - finska",
+            "description":"Möt lilla nallen Pino och hans vänner i animerade äventyr. Säsong 1.",
+            "product_type":"packageseries",
+            "accessible_episodes_count":19
+         },
+         {  
+            "ur_asset_id":181142,
+            "title":"Katten, musen, tiotusen",
+            "description":"Säsong 2. Förstår du vilket mattebegrepp som musen pratar om?",
+            "product_type":"packageseries",
+            "accessible_episodes_count":3
+         }
+      ]
+   },
+   {  
+      "title":"Mest sedda",
+      "type":"SolrQuery",
+      "products":[  
+         {  
+            "ur_asset_id":193344,
+            "title":"En sällsynt vanlig dag",
+            "maintitle":"En sällsynt vanlig dag",
+            "remainderoftitle":null,
+            "description":"Se hur det sällsynta blir normen, och normen det sällsynta!",
+            "product_type":"programtv",
+            "duration":"00:18:00",
+            "episode_info":""
+         },
+         {  
+            "ur_asset_id":192242,
+            "title":"Scenerna som förändrade filmen : Genrer",
+            "maintitle":"Scenerna som förändrade filmen",
+            "remainderoftitle":"Genrer",
+            "description":"Vilka olika genrer finns det inom filmen?",
+            "product_type":"programtv",
+            "duration":"00:28:53",
+            "episode_info":"Avsnitt 1/8"
+         },
+         {  
+            "ur_asset_id":192250,
+            "title":"Scenerna som förändrade filmen : Effekter",
+            "maintitle":"Scenerna som förändrade filmen",
+            "remainderoftitle":"Effekter",
+            "description":"Hur har filmens visuella effekter utvecklats genom åren?",
+            "product_type":"programtv",
+            "duration":"00:28:57",
+            "episode_info":"Avsnitt 6/8"
+         },
+         {  
+            "ur_asset_id":193159,
+            "title":"Asien från ovan : Burma",
+            "maintitle":"Asien från ovan",
+            "remainderoftitle":"Burma",
+            "description":"Burma har länge varit isolerat från omvärlden.",
+            "product_type":"programtv",
+            "duration":"00:43:02",
+            "episode_info":"Avsnitt 3/5"
+         }
+      ]
+   },
+   {  
+      "title":"sista chansen - serier",
+      "type":"SolrQuery",
+      "products":[  
+         {  
+            "ur_asset_id":193177,
+            "title":"Schrödingers katt",
+            "description":"De senaste forskningsnyheterna presenteras i en rasande takt.",
+            "product_type":"packageseries",
+            "accessible_episodes_count":5
+         },
+         {  
+            "ur_asset_id":191071,
+            "title":"UR Samtiden - Skolan möter världen",
+            "description":"Om svenskt bistånd och lärande för hållbar utveckling.",
+            "product_type":"packageseries",
+            "accessible_episodes_count":7
+         },
+         {  
+            "ur_asset_id":171128,
+            "title":"Sagor i nattmössan - lulesamiska",
+            "description":"På kvällen skriver Johannes historier som blir filmade sagoäventyr.",
+            "product_type":"packageseries",
+            "accessible_episodes_count":1
+         },
+         {  
+            "ur_asset_id":164394,
+            "title":"Medialized",
+            "description":"Lär dig hur den medialiserade verkligheten skapas.",
+            "product_type":"packageseries",
+            "accessible_episodes_count":7
+         }
+      ]
+   },
+   {  
+      "title":"Petters Användarlisteblock",
+      "type":"UserCollectionList",
+      "lists":[  
+         {  
+            "title":"Katt på hett plåttak",
+            "id":7,
+            "image":"/system/local_images/images/000/000/020/original/embarrassed-kitten.jpg?1443715128"
+         },
+         {  
+            "title":"Marias spellista",
+            "id":3,
+            "image":"/system/local_images/images/000/000/011/original/keyboard-cat-in-space.jpg?1431431063"
+         },
+         {  
+            "title":"Petters nya lista",
+            "id":1,
+            "image":"/system/local_images/images/000/000/015/original/boywithcat.png?1432219844"
+         }
+      ]
+   }
+]

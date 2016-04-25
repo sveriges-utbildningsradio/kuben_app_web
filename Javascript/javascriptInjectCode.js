@@ -531,7 +531,7 @@ var UR = new function() {
         save: function(pageId, pageUrl) {
             console.info("bookmark save pageId:" + pageId + " pageUrl:" + pageUrl);
             if (UR.isIOS()) {
-                webkit.messageHandlers.saveBookmark.postMessage(pageUrl);
+                webkit.messageHandlers.saveBookmark.postMessage({pageId:pageId,pageUrl:pageUrl});
             } else if (UR.isAndroid()) {
                AndroidBookmark.save(pageId, pageUrl);
             }
@@ -547,7 +547,7 @@ var UR = new function() {
         remove: function(pageId, pageUrl) {
             console.info("bookmark remove pageId:" + pageId + " pageUrl:" + pageUrl);
             if (UR.isIOS()) {
-                webkit.messageHandlers.removeBookmark.postMessage(pageUrl);
+                webkit.messageHandlers.removeBookmark.postMessage({pageId:pageId,pageUrl:pageUrl});
             } else if (UR.isAndroid()) {
                 AndroidBookmark.remove(pageId, pageUrl);
             }
@@ -561,7 +561,7 @@ var UR = new function() {
         isBookmarked: function(pageId,pageUrl) {
             console.info("bookmark isBookmarked id:" + pageId);
             if (UR.isIOS()) {
-                webkit.messageHandlers.checkBookmarkStatus.postMessage(pageUrl);
+                webkit.messageHandlers.checkBookmarkStatus.postMessage(pageId);
             } else if (UR.isAndroid()) {
                 AndroidBookmark.isBookmarked(pageId,pageUrl);
             }
