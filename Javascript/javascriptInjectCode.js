@@ -4,6 +4,12 @@ Some rules from this file, otherwise some client interpretation might break pars
 - don't use // for comment
 - Escape delimiters eg \"
 */
+/**
+
+Assumtion
+- program ID's are six digits eg 123456
+- language ID's are between one and four digits eg 1 or 1245
+*/
 document.addEventListener('DOMContentLoaded', function(event) {
     console.info('JS loaded');
     UR.onPageFinished();
@@ -252,35 +258,40 @@ var UR = new function() {
     };
 
     /**
-        Get the program ID from the IMAGE data from the OG data
+        Get the program ID from the currently active language URL 
+        //Assumtion!! program ID's are 6 digits eg 123456
+        //Assumtion!! language ID's are between 1 and 4 digits eg 1 or 1245
         @return a program ID or NULL if no ID was found
     */
     this.getProgramId = function(){
        
        
         if(UR.isAndroid()){
-            //parsing the ID from a source that is not the baseUrl, in this case the IMAGE of the Open Graph
-            var og = document.querySelector("meta[property='og:image']");
-            var ogImageUrl = og.getAttribute('content');
-            
-            var parser = document.createElement('a');
-            parser.href = ogImageUrl;
-            
-            //get the path part of the URL
-            var urlPath= parser.pathname;
-            
-            //Check for expected url format
-            var expectedRe = new RegExp("/id/[0-9]{6}/images/");
-            var expectedUrl = ogImageUrl.match(expectedRe).toString();
-            if( (expectedUrl === null) || (expectedUrl === undefined) ){
-                console.error("Can't extract a ID, got an unexpected URL:"+ogImageUrl);
-                return null;
+            //get ID from  PartialHlsUrl 
+            var streamingUrl = UR.getPartialHlsUrl();
+            if(streamingUrl === null || streamingUrl === undefined){
+                console.error("getProgramId, failed to get a getPartialHlsUrl");
+                return null;    
             }
             
-            //found an expected format, get ID
-            var re = new RegExp("[0-9]{6}");
-            var idString = expectedUrl.match(re);
-            return idString[0];
+            //extract "164158-22." from eg "urplay/_definst_/mp3:164000-164999/164158-22.mp3/playlist.m3u8"
+            var URL_ID_RE = new RegExp("/[0-9]{6}-[0-9]{1,4}[\.]+");
+            var URL_ID = streamingUrl.match(URL_ID_RE);
+            if(URL_ID === null || URL_ID === undefined){
+                console.error("getProgramId, failed to get a URL_ID for url:"+streamingUrl);
+                return null;    
+            }
+            var URL_ID_STR = URL_ID.toString();
+ 
+            //extract "164158" from "164158-22."
+            var ID_RE = new RegExp("[0-9]{6}");
+            var ID = URL_ID_STR.match(ID_RE);
+            if(ID === null || ID === undefined){
+                console.error("getProgramId, failed to get valid a ID from URL_ID_STR:"+URL_ID_STR);
+                return null;    
+            }
+
+            return ID.toString();
         }else if(UR.isIOS()){
             console.log("getProgramId for iOS")
             var activePartialStreamUrl = UR.getProgramIdFromActiveCaptionLbl();
