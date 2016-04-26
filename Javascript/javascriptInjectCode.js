@@ -51,6 +51,7 @@ var UR = new function() {
 		UR.iconListenerAdded=true;
 
 		icon.addEventListener("click", function(){
+                             
 			UR.startNativeMediaPlayer(UR.getPartialHlsUrl(),UR.getPartial_HD_HlsUrl(),UR.getProgramId(),UR.getPageUrl());
 		});
 
@@ -255,29 +256,114 @@ var UR = new function() {
         @return a program ID or NULL if no ID was found
     */
     this.getProgramId = function(){
-        //parsing the ID from a source that is not the baseUrl, in this case the IMAGE of the Open Graph
-        var og = document.querySelector("meta[property='og:image']");
-        var ogImageUrl = og.getAttribute('content');
-
-        var parser = document.createElement('a');
-        parser.href = ogImageUrl;
-
-        //get the path part of the URL
-        var urlPath= parser.pathname;
-
-        //Check for expected url format
-        var expectedRe = new RegExp("/id/[0-9]{6}/images/");
-        var expectedUrl = ogImageUrl.match(expectedRe).toString();
-        if( (expectedUrl === null) || (expectedUrl === undefined) ){
-            console.error("Can't extract a ID, got an unexpected URL:"+ogImageUrl);
+       
+       
+        if(UR.isAndroid()){
+            //parsing the ID from a source that is not the baseUrl, in this case the IMAGE of the Open Graph
+            var og = document.querySelector("meta[property='og:image']");
+            var ogImageUrl = og.getAttribute('content');
+            
+            var parser = document.createElement('a');
+            parser.href = ogImageUrl;
+            
+            //get the path part of the URL
+            var urlPath= parser.pathname;
+            
+            //Check for expected url format
+            var expectedRe = new RegExp("/id/[0-9]{6}/images/");
+            var expectedUrl = ogImageUrl.match(expectedRe).toString();
+            if( (expectedUrl === null) || (expectedUrl === undefined) ){
+                console.error("Can't extract a ID, got an unexpected URL:"+ogImageUrl);
+                return null;
+            }
+            
+            //found an expected format, get ID
+            var re = new RegExp("[0-9]{6}");
+            var idString = expectedUrl.match(re);
+            return idString[0];
+        }else if(UR.isIOS()){
+            console.log("getProgramId for iOS")
+            var activePartialStreamUrl = UR.getProgramIdFromActiveCaptionLbl();
+            console.log(activePartialStreamUrl);
+            //Remove last "/"
+            activePartialStreamUrl = activePartialStreamUrl.replace(/.$/,'');
+            //Array of all items seperated by /
+            var idStringArray = activePartialStreamUrl.split("/");
+            var idStringArrayLastPart = idStringArray.slice(-1)[0];
+            var idStringFirstPart = idStringArrayLastPart.split("-");
+  
+            console.log(idStringFirstPart[0])
+            return idStringFirstPart[0];
+        
+        
+       }
+        
+        
+       
+        
+    };
+    
+    this.getProgramIdFromActiveCaptionLbl = function(){
+        //Using the "captions" list of languages in the webpage to get the selected language,
+        //if no language is selected the first language in the list is used
+        var captions = document.getElementsByClassName('captions')[0];
+        //var okLength = ( (captions!==undefined) && (captions!==null) && (captions.length!==0) );
+        if( (captions === undefined) || (captions === null) /*|| ( okLength===false )*/ ) {
+            console.error("getPartialHlsUrl, can't find the caption element, can't get a hls url");
             return null;
         }
+        
+        var languageElement = captions.getElementsByClassName('active');
+        var okLength = ( (languageElement!==undefined) && (languageElement!==null) && (languageElement.length!==0) );
+        if((languageElement === undefined) || (languageElement === null) || ( okLength===false ) ){
+            console.info("getPartialHlsUrl, can't find a active language, will use the first language in the list");
+            languageElement = captions.firstElementChild.children;
+            
+            //var okLength = ( (languageElement!==undefined) && (languageElement!==null) && (languageElement.length!==0) );
+            if((languageElement === undefined) || (languageElement === null) /*|| ( okLength===false ) */){
+                console.error("getPartialHlsUrl, can't find a language element, can't get a HLS address");
+                return null;
+            }
+            
+        }
+        
+        var html = languageElement[0];
+        //var okLength = ( (html!==undefined) && (html!==null) && ( html.attributes.length!==0 ) );
+        if ((html === undefined) || (html === null) /* || ( okLength==false ) */ ) {
+            console.error("getPartialHlsUrl, can't get a find a list element to get language url, can't get a hls url");
+            return null;
+        }
+        
+        var url = null;
+        try{
+            url = html.getAttribute('data-stream');
+        }catch(error){
+            if(error instanceof TypeError){
+                console.info("getPartialHlsUrl, got a "+( typeof error )+", this might happen");
+            }else{
+                console.info("getPartialHlsUrl, got a "+( typeof error )+", this should not happen");
+            }
+            
+            console.error("getPartialHlsUrl, the attribute data-stream couldn't be found, can't get a hls url");
+            return null;
+        }
+        
+        if ((url === undefined) || (url === null) ) {
+            console.error("getPartialHlsUrl, Couldn't get the hls stream from the web element");
+            return null;
+        }
+        if(url.length===0){
+            console.info("getPartialHlsUrl, got a empty hls url, this is ok");
+            return ""
+        }
+        
 
-        //found an expected format, get ID
-        var re = new RegExp("[0-9]{6}");
-        var idString = expectedUrl.match(re);
-        return idString[0];
-    };
+        return url
+        
+    
+    
+    
+    }
 
     this.getPageUrl = function(){
         return document.baseURI;
