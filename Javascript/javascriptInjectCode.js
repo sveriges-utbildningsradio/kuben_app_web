@@ -394,7 +394,7 @@ var UR = new function() {
 	    console.log("Containers: " + containers + " length: " + containers.length);
 	    
         if (containers.length > 0) {
-	    console.log("Container[0]: " + container[0]);
+	    console.log("Container[0]: " + containers[0]);
 		
             containers[0].style.position = 'relative';
             var button = document.createElement('div');
