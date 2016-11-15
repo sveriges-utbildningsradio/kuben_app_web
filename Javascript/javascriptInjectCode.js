@@ -420,6 +420,9 @@ var UR = new function() {
         var productButtons = document.getElementsByClassName('product-buttons')[0];
         var url = document.baseURI;
 
+	console.log("productButtons: " + productButtons);
+	console.log("Type of productButtons: " + typeof productButtons);
+	    
         if ((typeof productButtons === 'undefined') || (productButtons === null)) {
             console.error("can't find product-buttons");
             return;
