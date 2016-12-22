@@ -547,13 +547,10 @@ var UR = new function() {
         UR.loadImages();
         UR.addBookmarkButton();
 
-        // UR.addPlayButton();
-        // //adding listners
-        // UR.addIconListener();
-        // UR.addCaptionListener();
-
-        UR.showCastText('Test device')
-
+        UR.addPlayButton();
+        //adding listners
+        UR.addIconListener();
+        UR.addCaptionListener();
     };
     
     /* function that enables the UI element in the html page that shows that a page has been  bookmarked */
