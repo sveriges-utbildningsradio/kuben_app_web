@@ -431,23 +431,22 @@ var UR = new function() {
         if (containers.length > 0) {
             console.log("Container[0]: " + containers[0]);
 
-            containers[0].style.position = 'relative';
-            containers[0].style.backgroundColor = '#00FF00';
+            // containers[0].style.position = 'relative';
+
+            var playerContainer = containers[0];
+            playerContainer.style.backgroundColor = '#00FF00';
 
             var castText = document.createElement('div');
             castText.id = 'cast-text'
-            castText.style.position = 'absolute';
-            castText.style.top = 0;
-            castText.style.bottom = 0;
-            castText.style.left = 0;
-            castText.style.right = 0;
+            castText.style.position = 'relative';
+            castText.style.height = 'auto';
             castText.style.fontSize = '1.8em';
             castText.style.color = '#FFFFFF';
             castText.style.textAlign = 'center';
             castText.style.verticalAlign = 'middle';
             castText.innerHTML = "Sänder till " + castDevice;
             castText.style.backgroundColor = '#FFFF00';
-            containers[0].appendChild(castText);
+            playerContainer.appendChild(castText);
         }
     };
 
