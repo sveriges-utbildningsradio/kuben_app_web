@@ -432,6 +432,8 @@ var UR = new function() {
             console.log("Container[0]: " + containers[0]);
 
             containers[0].style.position = 'relative';
+            containers[0].style.backgroundColor = '#00FF00';
+
             var castText = document.createElement('div');
             castText.id = 'cast-text'
             castText.style.position = 'relative';
@@ -444,6 +446,7 @@ var UR = new function() {
             castText.style.textAlign = 'center';
             castText.style.verticalAlign = 'middle';
             castText.innerHTML = "Sänder till " + castDevice;
+            castText.style.backgroundColor = '#FFFF00';
             containers[0].appendChild(castText);
         }
     };
