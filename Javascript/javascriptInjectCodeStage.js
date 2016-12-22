@@ -411,8 +411,6 @@ var UR = new function() {
             button.style.backgroundRepeat = 'no-repeat';
             containers[0].appendChild(button);
         }
-
-        button.style.visibility = 'hidden';
     }
 
     this.togglePlayButton = function(isVisible){
