@@ -439,7 +439,7 @@ var UR = new function() {
             var image = document.getElementById("player-placeholder");
             image.style.visibility = 'hidden';
 
-            var castText = document.createElement('div');
+            var castText = document.createElement('p');
             castText.id = 'cast-text'
             castText.style.position = 'relative';
             castText.style.height = 'auto';
@@ -447,7 +447,6 @@ var UR = new function() {
             castText.style.fontSize = '1.8em';
             castText.style.color = '#FFFFFF';
             castText.style.textAlign = 'center';
-            castText.style.verticalAlign = 'middle';
             castText.innerHTML = "Sänder till " + castDevice;
             castText.style.backgroundColor = '#FFFF00';
             playerContainer.appendChild(castText);
