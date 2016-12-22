@@ -416,7 +416,7 @@ var UR = new function() {
 
     /* Add and show the cast label to image */
     this.showCastText = function(castDevice){
-        console.info("addCastText");
+        console.info("showCastText");
 
         var playButton = document.getElementById('mediaplayer-play-button-id');
 
@@ -450,8 +450,11 @@ var UR = new function() {
     };
 
     this.hideCastText = function () {
+        console.info("hideCastText");
+
         var castText = document.getElementById('cast-text');
 
+        console.info("castText = " + castText);
         if(castText != null){
             document.removeChild(castText);
         }
