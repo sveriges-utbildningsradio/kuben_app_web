@@ -434,13 +434,15 @@ var UR = new function() {
             containers[0].style.position = 'relative';
             var castText = document.createElement('div');
             castText.id = 'cast-text'
-            castText.style.position = 'absolute';
+            castText.style.position = 'relative';
             castText.style.top = 0;
             castText.style.bottom = 0;
             castText.style.left = 0;
             castText.style.right = 0;
-            castText.style.fontSize = '2em';
+            castText.style.fontSize = '1.8em';
             castText.style.color = '#FFFFFF';
+            castText.style.textAlign = 'center';
+            castText.style.verticalAlign = 'middle';
             castText.innerHTML = "Sänder till " + castDevice;
             containers[0].appendChild(castText);
         }
