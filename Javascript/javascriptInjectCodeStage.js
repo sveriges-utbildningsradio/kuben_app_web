@@ -418,7 +418,7 @@ var UR = new function() {
     this.showCastText = function(castDevice){
         console.info("showCastText");
 
-        setCookie('isCastSession', true, 1);
+        UR.setCookie('isCastSession', true, 1);
 
         var playButton = document.getElementById('mediaplayer-play-button-id');
 
@@ -561,9 +561,9 @@ var UR = new function() {
         UR.loadImages();
         UR.addBookmarkButton();
 
-        console.log("isCastSession: " + isCastSession);
+        var isCastSession = UR.getCookie('isCastSession');
 
-        var isCastSession = getCookie('isCastSession');
+        console.log("isCastSession: " + isCastSession);
 
         if(!isCastSession) UR.addPlayButton();
         //adding listners
