@@ -30,8 +30,6 @@ var UR = new function() {
     var captionListenerAdded = false;
     var addPlayButtonAdded = false;
 
-    var isCastSession = false;
-
     /* Get the page icon image eg "http://assets.ur.se/id/187968/images/1_l.jpg" */
     this.getIconImage = function(){
         var og = document.querySelector("meta[property='og:image']");
@@ -420,7 +418,7 @@ var UR = new function() {
     this.showCastText = function(castDevice){
         console.info("showCastText");
 
-        isCastSession = true;
+        setCookie('isCastSession', true, 1);
 
         var playButton = document.getElementById('mediaplayer-play-button-id');
 
@@ -458,7 +456,7 @@ var UR = new function() {
 
         var castText = document.getElementById('cast-text');
 
-        isCastSession = false;
+        document.cookie = "isCastSession=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 
         console.info("castText = " + castText);
         if(castText != null){
@@ -562,6 +560,10 @@ var UR = new function() {
         UR.allwaysShowCaptionBtn();
         UR.loadImages();
         UR.addBookmarkButton();
+
+        console.log("isCastSession: " + isCastSession);
+
+        var isCastSession = getCookie('isCastSession');
 
         if(!isCastSession) UR.addPlayButton();
         //adding listners
@@ -684,6 +686,29 @@ var UR = new function() {
 
         }
     };
+
+    function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        var expires = "expires="+d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+
+    function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for(var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+
     this.Bookmark = {
         /**
             Will save a bookmark  (on iOS and Android this is done natively),
