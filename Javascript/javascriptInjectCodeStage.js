@@ -435,6 +435,7 @@ var UR = new function() {
 
             var playerContainer = containers[0];
             playerContainer.style.backgroundColor = '#00FF00';
+            playerContainer.position = 'relative';
 
             var image = document.getElementById("player-placeholder");
             image.style.visibility = 'hidden';
