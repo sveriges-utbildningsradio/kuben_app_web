@@ -442,7 +442,6 @@ var UR = new function() {
             castText.style.color = '#FFFFFF';
             castText.style.fontSize = '1.8em';
             castText.innerHTML = "Sänder till " + castDevice;
-            castText.style.backgroundColor = '#FFFF00';
             containers[0].appendChild(castText);
         }
     };
