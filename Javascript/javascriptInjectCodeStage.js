@@ -440,6 +440,8 @@ var UR = new function() {
             castText.style.left = '50%';
             castText.style.transform = 'translate(-50%, -50%)';
             castText.style.color = '#FFFFFF';
+            castText.style.textAlign = 'center';
+            castText.style.lineHeight = '1.2em';
             castText.style.fontSize = '1.8em';
             castText.innerHTML = "Sänder till " + castDevice;
             containers[0].appendChild(castText);
