@@ -418,7 +418,7 @@ var UR = new function() {
     this.showCastText = function(castDevice){
         console.info("showCastText");
 
-        UR.setCookie('isCastSession', true, 1);
+        sessionStorage.isCastSession = true;
 
         var playButton = document.getElementById('mediaplayer-play-button-id');
 
@@ -456,7 +456,7 @@ var UR = new function() {
 
         var castText = document.getElementById('cast-text');
 
-        UR.removeCastSession();
+        sessionStorage.isCastSession = false;
 
         console.info("castText = " + castText);
         if(castText != null){
@@ -561,11 +561,9 @@ var UR = new function() {
         UR.loadImages();
         UR.addBookmarkButton();
 
-        var isCastSession = UR.getCookie('isCastSession');
+        console.log("isCastSession: " + sessionStorage.isCastSession);
 
-        console.log("isCastSession: " + isCastSession);
-
-        if(!isCastSession) UR.addPlayButton();
+        if(sessionStorage.isCastSession === false) UR.addPlayButton();
         //adding listners
         UR.addIconListener();
         UR.addCaptionListener();
@@ -686,34 +684,6 @@ var UR = new function() {
 
         }
     };
-
-    this.setCookie = function (cname, cvalue, exdays) {
-        var d = new Date();
-        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-        var expires = "expires="+d.toUTCString();
-        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-    }
-
-    this.getCookie = function (cname) {
-        var name = cname + "=";
-        var ca = document.cookie.split(';');
-        for(var i = 0; i < ca.length; i++) {
-            var c = ca[i];
-            while (c.charAt(0) == ' ') {
-                c = c.substring(1);
-            }
-            if (c.indexOf(name) == 0) {
-                return c.substring(name.length, c.length);
-            }
-        }
-        return "";
-    }
-
-    this.removeCastSession = function() {
-        console.log("Removed cast session cookie!");
-
-        document.cookie = "isCastSession=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
-    }
 
     this.Bookmark = {
         /**
