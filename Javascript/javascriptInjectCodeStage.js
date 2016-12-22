@@ -442,12 +442,10 @@ var UR = new function() {
             var castText = document.createElement('div');
             castText.id = 'cast-text'
             castText.style.position = 'relative';
-            castText.style.height = 'auto';
-            castText.style.width = '100%';
-            castText.style.margin = '0 auto';
-            castText.style.fontSize = '1.8em';
-            castText.style.color = '#FFFFFF';
-            castText.style.textAlign = 'center';
+            castText.position = 'absolute';
+            castText.top = '50%';
+            castText.left = '50%';
+            castText.transform = 'translate(-50%, -50%)';
             castText.innerHTML = "Sänder till " + castDevice;
             castText.style.backgroundColor = '#FFFF00';
             playerContainer.appendChild(castText);
