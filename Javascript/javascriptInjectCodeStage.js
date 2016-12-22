@@ -416,6 +416,8 @@ var UR = new function() {
     }
 
     this.togglePlayButton = function(isVisible){
+        console.log("togglePlayButton(visible): " + isVisible);
+
         var playButton = document.getElementById('mediaplayer-play-button-id');
         if(typeof playButton === 'undefined'){
             return
@@ -431,8 +433,6 @@ var UR = new function() {
     /* Add and show the cast label to image */
     this.showCastText = function(castDevice){
         console.info("showCastText");
-
-        sessionStorage.isCastSession = true;
 
         var playButton = document.getElementById('mediaplayer-play-button-id');
 
@@ -469,8 +469,6 @@ var UR = new function() {
         console.info("hideCastText");
 
         var castText = document.getElementById('cast-text');
-
-        sessionStorage.isCastSession = false;
 
         console.info("castText = " + castText);
         if(castText != null){
@@ -574,8 +572,6 @@ var UR = new function() {
         UR.allwaysShowCaptionBtn();
         UR.loadImages();
         UR.addBookmarkButton();
-
-        console.log("isCastSession: " + sessionStorage.isCastSession);
 
         UR.addPlayButton();
         //adding listners
