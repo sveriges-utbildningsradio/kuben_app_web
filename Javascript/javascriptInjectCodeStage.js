@@ -436,6 +436,7 @@ var UR = new function() {
             var castText = document.createElement('div');
             castText.id = 'cast-text';
             castText.style.position = 'absolute';
+            castText.style.width = '100%';
             castText.style.top = '50%';
             castText.style.left = '50%';
             castText.style.transform = 'translate(-50%, -50%)';
