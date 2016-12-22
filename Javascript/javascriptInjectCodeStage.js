@@ -456,7 +456,13 @@ var UR = new function() {
 
         console.info("castText = " + castText);
         if(castText != null){
-            document.removeChild(castText);
+            var containers = document.getElementsByClassName('player-container');
+
+            console.log("Containers: " + containers + " length: " + containers.length);
+
+            if (containers.length > 0) {
+                containers.removeChild(castText);
+            }
         }
 
         var playIcon = document.getElementById('mediaplayer-play-button-id');
