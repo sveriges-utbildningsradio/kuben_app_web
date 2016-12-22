@@ -434,6 +434,8 @@ var UR = new function() {
             // containers[0].style.position = 'relative';
 
             var playerContainer = containers[0];
+            playerContainer.height = 'inherit';
+            playerContainer.width = 'inherit';
             playerContainer.style.backgroundColor = '#00FF00';
 
             var castText = document.createElement('div');
