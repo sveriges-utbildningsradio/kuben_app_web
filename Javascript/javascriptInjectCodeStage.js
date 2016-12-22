@@ -440,7 +440,7 @@ var UR = new function() {
             var image = document.getElementById("player-placeholder");
             image.style.visibility = 'hidden';
 
-            var castText = document.createElement('div');
+            var castText = document.createElement('p');
             castText.id = 'cast-text'
             castText.style.position = 'absolute';
             castText.style.top = '50%';
