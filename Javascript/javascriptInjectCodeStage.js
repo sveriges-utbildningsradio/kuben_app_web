@@ -431,11 +431,8 @@ var UR = new function() {
         if (containers.length > 0) {
             console.log("Container[0]: " + containers[0]);
 
-            // containers[0].style.position = 'relative';
-
-            var playerContainer = containers[0];
-            playerContainer.style.backgroundColor = '#00FF00';
-            playerContainer.style.position = 'relative';
+            containers[0].style.position = 'relative';
+            containers[0].style.backgroundColor = '#00FF00';
 
             var image = document.getElementById("player-placeholder");
             image.style.visibility = 'hidden';
@@ -448,7 +445,7 @@ var UR = new function() {
             castText.style.transform = 'translate(-50%, -50%)';
             castText.innerHTML = "Sänder till " + castDevice;
             castText.style.backgroundColor = '#FFFF00';
-            playerContainer.appendChild(castText);
+            containers[0].appendChild(castText);
         }
     };
 
