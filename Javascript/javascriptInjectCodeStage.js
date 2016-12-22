@@ -414,7 +414,7 @@ var UR = new function() {
     }
 
     this.togglePlayButton = function(isVisible){
-        console.log("togglePlayButton(visible): " + isVisible);
+        console.info("togglePlayButton(visible): " + isVisible);
 
         var playButton = document.getElementById('mediaplayer-play-button-id');
         if(typeof playButton === 'undefined'){
