@@ -563,7 +563,7 @@ var UR = new function() {
 
         console.log("isCastSession: " + sessionStorage.isCastSession);
 
-        if(sessionStorage.isCastSession === 'undefined' || sessionStorage.isCastSession === false) UR.addPlayButton();
+        if(typeof sessionStorage.isCastSession === 'undefined' || sessionStorage.isCastSession === false) UR.addPlayButton();
         //adding listners
         UR.addIconListener();
         UR.addCaptionListener();
