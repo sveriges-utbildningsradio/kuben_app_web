@@ -432,16 +432,13 @@ var UR = new function() {
             console.log("Container[0]: " + containers[0]);
 
             containers[0].style.position = 'relative';
-            containers[0].style.backgroundColor = '#00FF00';
-
-            var image = document.getElementById("player-placeholder");
-            image.style.visibility = 'hidden';
 
             var castText = document.createElement('div');
             castText.id = 'cast-text'
             castText.style.position = 'absolute';
             castText.style.top = '50%';
-            castText.style.transform = 'translateY(-50%)';
+            castText.style.left = '50%';
+            castText.style.transform = 'translateY(-50%, -50%)';
             castText.innerHTML = "Sänder till " + castDevice;
             castText.style.backgroundColor = '#FFFF00';
             containers[0].appendChild(castText);
