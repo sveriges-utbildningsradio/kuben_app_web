@@ -709,7 +709,9 @@ var UR = new function() {
         return "";
     }
 
-    function removeCastSession() {
+    this.removeCastSession = function() {
+        console.log("Removed cast session cookie!");
+
         document.cookie = "isCastSession=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
     }
 
