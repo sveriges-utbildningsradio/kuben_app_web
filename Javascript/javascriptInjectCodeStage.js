@@ -456,7 +456,7 @@ var UR = new function() {
 
         var castText = document.getElementById('cast-text');
 
-        document.cookie = "isCastSession=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+        UR.removeCastSession();
 
         console.info("castText = " + castText);
         if(castText != null){
@@ -707,6 +707,10 @@ var UR = new function() {
             }
         }
         return "";
+    }
+
+    function removeCastSession() {
+        document.cookie = "isCastSession=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
     }
 
     this.Bookmark = {
