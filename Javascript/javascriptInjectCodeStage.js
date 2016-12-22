@@ -434,7 +434,7 @@ var UR = new function() {
             containers[0].style.position = 'relative';
 
             var castText = document.createElement('div');
-            castText.id = 'cast-text'
+            castText.id = 'cast-text';
             castText.style.position = 'absolute';
             castText.style.top = '50%';
             castText.style.left = '50%';
@@ -443,7 +443,7 @@ var UR = new function() {
             castText.style.textAlign = 'center';
             castText.style.lineHeight = '1.2em';
             castText.style.fontSize = '1.8em';
-            castText.innerHTML = "Sänder till " + castDevice;
+            castText.innerHTML = "Sänder till<Br />" + castDevice;
             containers[0].appendChild(castText);
         }
     };
