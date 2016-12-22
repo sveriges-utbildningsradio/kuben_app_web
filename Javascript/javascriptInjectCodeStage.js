@@ -439,11 +439,12 @@ var UR = new function() {
             var image = document.getElementById("player-placeholder");
             image.style.visibility = 'hidden';
 
-            var castText = document.createElement('p');
+            var castText = document.createElement('div');
             castText.id = 'cast-text'
             castText.style.position = 'relative';
             castText.style.height = 'auto';
-            castText.style.width = 'inherit';
+            castText.style.width = '100%';
+            castText.style.margin = '0 auto';
             castText.style.fontSize = '1.8em';
             castText.style.color = '#FFFFFF';
             castText.style.textAlign = 'center';
