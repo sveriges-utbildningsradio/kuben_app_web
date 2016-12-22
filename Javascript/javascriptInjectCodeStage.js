@@ -412,7 +412,21 @@ var UR = new function() {
             containers[0].appendChild(button);
         }
 
+        button.style.visibility = 'hidden';
     }
+
+    this.togglePlayButton = function(isVisible){
+        var playButton = document.getElementById('mediaplayer-play-button-id');
+        if(typeof playButton === 'undefined'){
+            return
+        }
+
+        if(isVisible){
+            playButton.style.visibility = 'visible';
+        } else {
+            playButton.style.visibility = 'hidden';
+        }
+    };
 
     /* Add and show the cast label to image */
     this.showCastText = function(castDevice){
@@ -422,7 +436,7 @@ var UR = new function() {
 
         var playButton = document.getElementById('mediaplayer-play-button-id');
 
-        if(playButton != null){
+        if(typeof playButton !== 'undefined'){
             playButton.style.visibility = 'hidden';
         }
 
@@ -563,7 +577,7 @@ var UR = new function() {
 
         console.log("isCastSession: " + sessionStorage.isCastSession);
 
-        if(typeof sessionStorage.isCastSession === 'undefined' || sessionStorage.isCastSession === false) UR.addPlayButton();
+        UR.addPlayButton();
         //adding listners
         UR.addIconListener();
         UR.addCaptionListener();
