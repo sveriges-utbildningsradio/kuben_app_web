@@ -439,6 +439,8 @@ var UR = new function() {
             castText.style.top = '50%';
             castText.style.left = '50%';
             castText.style.transform = 'translate(-50%, -50%)';
+            castText.style.color = '#FFFFFF';
+            castText.style.fontSize = '1.8em';
             castText.innerHTML = "Sänder till " + castDevice;
             castText.style.backgroundColor = '#FFFF00';
             containers[0].appendChild(castText);
