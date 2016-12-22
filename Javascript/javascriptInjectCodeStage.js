@@ -453,10 +453,10 @@ var UR = new function() {
 
         if(castText != null){
             document.removeChild(castText);
-
-            var playIcon = document.getElementById('mediaplayer-play-button-id');
-            playIcon.style.visibility = 'visible';
         }
+
+        var playIcon = document.getElementById('mediaplayer-play-button-id');
+        playIcon.style.visibility = 'visible';
     };
 
     /* Add and show the bookmark button */
