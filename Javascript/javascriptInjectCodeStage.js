@@ -461,7 +461,7 @@ var UR = new function() {
             console.log("Containers: " + containers + " length: " + containers.length);
 
             if (containers.length > 0) {
-                containers.removeChild(castText);
+                containers[0].removeChild(castText);
             }
         }
 
