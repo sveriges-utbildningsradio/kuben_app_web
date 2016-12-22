@@ -30,6 +30,8 @@ var UR = new function() {
     var captionListenerAdded = false;
     var addPlayButtonAdded = false;
 
+    var isCastSession = false;
+
     /* Get the page icon image eg "http://assets.ur.se/id/187968/images/1_l.jpg" */
     this.getIconImage = function(){
         var og = document.querySelector("meta[property='og:image']");
@@ -292,7 +294,7 @@ var UR = new function() {
             }
 
             return ID.toString();
-        }else if(UR.isIOS()){
+        } else if(UR.isIOS()) {
             console.log("getProgramId for iOS")
             var activePartialStreamUrl = UR.getProgramIdFromActiveCaptionLbl();
             console.log(activePartialStreamUrl);
@@ -418,6 +420,8 @@ var UR = new function() {
     this.showCastText = function(castDevice){
         console.info("showCastText");
 
+        isCastSession = true;
+
         var playButton = document.getElementById('mediaplayer-play-button-id');
 
         if(playButton != null){
@@ -453,6 +457,8 @@ var UR = new function() {
         console.info("hideCastText");
 
         var castText = document.getElementById('cast-text');
+
+        isCastSession = false;
 
         console.info("castText = " + castText);
         if(castText != null){
@@ -557,7 +563,7 @@ var UR = new function() {
         UR.loadImages();
         UR.addBookmarkButton();
 
-        UR.addPlayButton();
+        if(!isCastSession) UR.addPlayButton();
         //adding listners
         UR.addIconListener();
         UR.addCaptionListener();
