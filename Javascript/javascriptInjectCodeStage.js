@@ -443,6 +443,7 @@ var UR = new function() {
             castText.id = 'cast-text'
             castText.style.position = 'relative';
             castText.style.height = 'auto';
+            castText.style.width = 'inherit';
             castText.style.fontSize = '1.8em';
             castText.style.color = '#FFFFFF';
             castText.style.textAlign = 'center';
