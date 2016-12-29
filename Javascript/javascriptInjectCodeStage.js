@@ -458,7 +458,7 @@ var UR = new function() {
             castText.style.textAlign = 'center';
             castText.style.lineHeight = '1.3em';
             castText.style.fontSize = '1.5em';
-            castText.style.textShadow = '0px 0px 1px #333333';
+            castText.style.textShadow = '0px 0px 1px #999999';
             castText.innerHTML = "Sänder till<Br />" + castDevice;
             containers[0].appendChild(castText);
         }
