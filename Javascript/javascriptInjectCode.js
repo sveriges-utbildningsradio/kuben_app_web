@@ -26,8 +26,8 @@ var UR = new function() {
     var bookmarkedImage;
     var notBookmarkedImage;
     var programIsBookmarkedFlag;
-    var iconListenerAdded=false;
-    var captionListenerAdded=false;
+    var iconListenerAdded = false;
+    var captionListenerAdded = false;
     var addPlayButtonAdded = false;
 
     /* Get the page icon image eg "http://assets.ur.se/id/187968/images/1_l.jpg" */
@@ -292,7 +292,7 @@ var UR = new function() {
             }
 
             return ID.toString();
-        }else if(UR.isIOS()){
+        } else if(UR.isIOS()) {
             console.log("getProgramId for iOS")
             var activePartialStreamUrl = UR.getProgramIdFromActiveCaptionLbl();
             console.log(activePartialStreamUrl);
@@ -380,8 +380,8 @@ var UR = new function() {
         return document.baseURI;
     }
 
-    /* Add and show the bookmark button */
-    this.addPlayButton= function(){
+    /* Add and show the play button */
+    this.addPlayButton = function(){
         console.info("addPlayButton");
         if(addPlayButtonAdded === true){
             console.info("button already added");
@@ -411,8 +411,78 @@ var UR = new function() {
             button.style.backgroundRepeat = 'no-repeat';
             containers[0].appendChild(button);
         }
-
     }
+
+    this.togglePlayButton = function(isVisible){
+        console.info("togglePlayButton(visible): " + isVisible);
+
+        var playButton = document.getElementById('mediaplayer-play-button-id');
+        if(typeof playButton === 'undefined'){
+            return
+        }
+
+        if(isVisible){
+            playButton.style.visibility = 'visible';
+        } else {
+            playButton.style.visibility = 'hidden';
+        }
+    };
+
+    /* Add and show the cast label to image */
+    this.showCastText = function(castDevice){
+        console.info("showCastText");
+
+        var playButton = document.getElementById('mediaplayer-play-button-id');
+
+        if(typeof playButton !== 'undefined'){
+            playButton.style.visibility = 'hidden';
+        }
+
+        var containers = document.getElementsByClassName('player-container');
+
+        console.log("Containers: " + containers + " length: " + containers.length);
+
+        if (containers.length > 0) {
+            console.log("Container[0]: " + containers[0]);
+
+            containers[0].style.position = 'relative';
+
+            var castText = document.createElement('div');
+            castText.id = 'cast-text';
+            castText.style.position = 'absolute';
+            castText.style.width = '100%';
+            castText.style.top = '50%';
+            castText.style.left = '50%';
+            castText.style.transform = 'translate(-50%, -50%)';
+            castText.style.color = '#FFFFFF';
+            castText.style.textAlign = 'center';
+            castText.style.lineHeight = '1.3em';
+            castText.style.fontSize = '1.5em';
+            castText.style.textShadow = '0px 0px 1px #999999';
+            castText.innerHTML = "Sänder till<Br />" + castDevice;
+            containers[0].appendChild(castText);
+        }
+    };
+
+    this.hideCastText = function () {
+        console.info("hideCastText");
+
+        var castText = document.getElementById('cast-text');
+
+        console.info("castText = " + castText);
+        if(castText != null){
+            var containers = document.getElementsByClassName('player-container');
+
+            console.log("Containers: " + containers + " length: " + containers.length);
+
+            if (containers.length > 0) {
+                containers[0].removeChild(castText);
+            }
+        }
+
+        var playIcon = document.getElementById('mediaplayer-play-button-id');
+        playIcon.style.visibility = 'visible';
+    };
 
     /* Add and show the bookmark button */
     this.addBookmarkButton= function(){
@@ -506,9 +576,7 @@ var UR = new function() {
         //adding listners
         UR.addIconListener();
         UR.addCaptionListener();
-
     };
-    
     
     /* function that enables the UI element in the html page that shows that a page has been  bookmarked */
     this.showPageBookmarked = function() {
@@ -547,7 +615,7 @@ var UR = new function() {
 
     this.BookmarkResponds = {
         /**
-        Called as a responds to Bookmark.save(..) with the stutus of the save
+        Called as a responds to Bookmark.save(..) with the status of the save
 
         pageId = UR id of the program REQUESTED eg 189895
         pageUrl = the main URL of webpage REQUESTED eg http://urplay.ur.se/program/189895-aarons-nya-land-i-krigets-skugga
@@ -563,11 +631,11 @@ var UR = new function() {
             if (savedStatus === true || savedStatus === 'true' ) {
                 UR.showPageBookmarked();
                 return;
-            }else if (savedStatus === false || savedStatus === 'false' ) {
+            } else if (savedStatus === false || savedStatus === 'false' ) {
                 console.error("Status error:"+savedStatus+" when saving bookmarking of a page, baseURI:" + document.baseURI + " bookmarked url:" + pageUrl);
                 UR.showPageNotBookmarked();
                 return;
-            }else{
+            } else {
                 console.error("Status error:"+savedStatus+" when saving bookmarking of a page, baseURI:" + document.baseURI + " bookmarked url:" + pageUrl);
                 UR.showPageNotBookmarked();
                 return;
@@ -625,6 +693,7 @@ var UR = new function() {
 
         }
     };
+
     this.Bookmark = {
         /**
             Will save a bookmark  (on iOS and Android this is done natively),
