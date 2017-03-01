@@ -1,4 +1,6 @@
 /**
+***Stage***
+
 Some rules from this file, otherwise some client interpretation might break parsing the file:
 - use \n or \r\n for newline, the client might need to remove these before using the file!
 - don't use // for comment
