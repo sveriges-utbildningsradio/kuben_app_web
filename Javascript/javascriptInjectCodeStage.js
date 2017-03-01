@@ -73,26 +73,27 @@ var UR = new function() {
         }
 		UR.captionListenerAdded=true;
 
-        var captions = document.getElementsByClassName('captions');
-            if ((captions === undefined) || (captions === null) || captions.isEmptyObject) {
-                console.error('can_t find the captions ID on the page,can_t add captions listener');
-                return;
-            }
-            var listElements = captions[0].getElementsByTagName('li');
-            captions[0].addEventListener('click', function (event) {
-                    console.info(event.target);
-                    UR.activateChildNode(event.target);
-            }, false);
+        var captions = document.getElementsByClassName('captions')[0];
+        if (captions === undefined || captions === null) {
+            console.error('can_t find the captions ID on the page,can_t add captions listener');
+            return;
+        }
+
+        captions.addEventListener('click', function (event) {
+            console.info(event.target);
+            UR.activateChildNode(event.target);
+        }, false);
     }
 
     /* Utility function for activate the right language caption */
     this.activateChildNode = function(dataId){
-        var captions = document.getElementsByClassName('captions');
-        if ((captions === undefined) || (captions === null) || captions.isEmptyObject) {
-                console.error('can_t find the captions ID on the page,can_t add captions listener');
-                return;
+        var captions = document.getElementsByClassName('captions')[0];
+        if (captions === undefined || captions === null) {
+            console.error('can_t find the captions ID on the page,can_t add captions listener');
+            return;
         }
-        var listElements = captions[0].getElementsByTagName('li');
+
+        var listElements = captions.getElementsByTagName('li');
         for (var index = 0; index < listElements.length; ++index) {
             listElements[index].childNodes[1].setAttribute('class','');
         }
