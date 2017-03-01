@@ -1,4 +1,6 @@
 /**
+***Prod***
+
 Some rules from this file, otherwise some client interpretation might break parsing the file:
 - use \n or \r\n for newline, the client might need to remove these before using the file!
 - don't use // for comment
@@ -57,7 +59,7 @@ var UR = new function() {
 		UR.iconListenerAdded=true;
 
 		icon.addEventListener("click", function(){
-                             
+
 			UR.startNativeMediaPlayer(UR.getPartialHlsUrl(),UR.getPartial_HD_HlsUrl(),UR.getProgramId(),UR.getPageUrl());
 		});
 
@@ -71,26 +73,27 @@ var UR = new function() {
         }
 		UR.captionListenerAdded=true;
 
-        var captions = document.getElementsByClassName('captions');
-            if ((captions === undefined) || (captions === null) || captions.isEmptyObject) {
-                console.error('can_t find the captions ID on the page,can_t add captions listener');
-                return;
-            }
-            var listElements = captions[0].getElementsByTagName('li');
-            captions[0].addEventListener('click', function (event) {
-                    console.info(event.target);
-                    UR.activateChildNode(event.target);
-            }, false);
+        var captions = document.getElementsByClassName('captions')[0];
+        if (captions === undefined || captions === null) {
+            console.error('can_t find the captions ID on the page,can_t add captions listener');
+            return;
+        }
+
+        captions.addEventListener('click', function (event) {
+            console.info(event.target);
+            UR.activateChildNode(event.target);
+        }, false);
     }
 
     /* Utility function for activate the right language caption */
     this.activateChildNode = function(dataId){
-        var captions = document.getElementsByClassName('captions');
-        if ((captions === undefined) || (captions === null) || captions.isEmptyObject) {
-                console.error('can_t find the captions ID on the page,can_t add captions listener');
-                return;
+        var captions = document.getElementsByClassName('captions')[0];
+        if (captions === undefined || captions === null) {
+            console.error('can_t find the captions ID on the page,can_t add captions listener');
+            return;
         }
-        var listElements = captions[0].getElementsByTagName('li');
+
+        var listElements = captions.getElementsByTagName('li');
         for (var index = 0; index < listElements.length; ++index) {
             listElements[index].childNodes[1].setAttribute('class','');
         }
@@ -235,7 +238,7 @@ var UR = new function() {
               'PartialHD_HlsUrl':partialHD_HlsUrl,
               'HlsAssociatedWebpage':hlsAssociatedWebpage
           };
-          
+
         webkit.messageHandlers.startNativeMediaPlayer.postMessage(streamData);
       }else{
         console.error('unknown player environment')
@@ -258,37 +261,37 @@ var UR = new function() {
     };
 
     /**
-        Get the program ID from the currently active language URL 
+        Get the program ID from the currently active language URL
         //Assumtion!! program ID's are 6 digits eg 123456
         //Assumtion!! language ID's are between 1 and 4 digits eg 1 or 1245
         @return a program ID or NULL if no ID was found
     */
     this.getProgramId = function(){
-       
-       
+
+
         if(UR.isAndroid()){
-            //get ID from  PartialHlsUrl 
+            //get ID from  PartialHlsUrl
             var streamingUrl = UR.getPartialHlsUrl();
             if(streamingUrl === null || streamingUrl === undefined){
                 console.error("getProgramId, failed to get a getPartialHlsUrl");
-                return null;    
+                return null;
             }
-            
+
             //extract "164158-22." from eg "urplay/_definst_/mp3:164000-164999/164158-22.mp3/playlist.m3u8"
             var URL_ID_RE = new RegExp("/[0-9]{6}-[0-9]{1,4}[\.]+");
             var URL_ID = streamingUrl.match(URL_ID_RE);
             if(URL_ID === null || URL_ID === undefined){
                 console.error("getProgramId, failed to get a URL_ID for url:"+streamingUrl);
-                return null;    
+                return null;
             }
             var URL_ID_STR = URL_ID.toString();
- 
+
             //extract "164158" from "164158-22."
             var ID_RE = new RegExp("[0-9]{6}");
             var ID = URL_ID_STR.match(ID_RE);
             if(ID === null || ID === undefined){
                 console.error("getProgramId, failed to get valid a ID from URL_ID_STR:"+URL_ID_STR);
-                return null;    
+                return null;
             }
 
             return ID.toString();
@@ -302,18 +305,18 @@ var UR = new function() {
             var idStringArray = activePartialStreamUrl.split("/");
             var idStringArrayLastPart = idStringArray.slice(-1)[0];
             var idStringFirstPart = idStringArrayLastPart.split("-");
-  
+
             console.log(idStringFirstPart[0])
             return idStringFirstPart[0];
-        
-        
+
+
        }
-        
-        
-       
-        
+
+
+
+
     };
-    
+
     this.getProgramIdFromActiveCaptionLbl = function(){
         //Using the "captions" list of languages in the webpage to get the selected language,
         //if no language is selected the first language in the list is used
@@ -323,28 +326,28 @@ var UR = new function() {
             console.error("getPartialHlsUrl, can't find the caption element, can't get a hls url");
             return null;
         }
-        
+
         var languageElement = captions.getElementsByClassName('active');
         var okLength = ( (languageElement!==undefined) && (languageElement!==null) && (languageElement.length!==0) );
         if((languageElement === undefined) || (languageElement === null) || ( okLength===false ) ){
             console.info("getPartialHlsUrl, can't find a active language, will use the first language in the list");
             languageElement = captions.firstElementChild.children;
-            
+
             //var okLength = ( (languageElement!==undefined) && (languageElement!==null) && (languageElement.length!==0) );
             if((languageElement === undefined) || (languageElement === null) /*|| ( okLength===false ) */){
                 console.error("getPartialHlsUrl, can't find a language element, can't get a HLS address");
                 return null;
             }
-            
+
         }
-        
+
         var html = languageElement[0];
         //var okLength = ( (html!==undefined) && (html!==null) && ( html.attributes.length!==0 ) );
         if ((html === undefined) || (html === null) /* || ( okLength==false ) */ ) {
             console.error("getPartialHlsUrl, can't get a find a list element to get language url, can't get a hls url");
             return null;
         }
-        
+
         var url = null;
         try{
             url = html.getAttribute('data-stream');
@@ -354,11 +357,11 @@ var UR = new function() {
             }else{
                 console.info("getPartialHlsUrl, got a "+( typeof error )+", this should not happen");
             }
-            
+
             console.error("getPartialHlsUrl, the attribute data-stream couldn't be found, can't get a hls url");
             return null;
         }
-        
+
         if ((url === undefined) || (url === null) ) {
             console.error("getPartialHlsUrl, Couldn't get the hls stream from the web element");
             return null;
@@ -367,13 +370,13 @@ var UR = new function() {
             console.info("getPartialHlsUrl, got a empty hls url, this is ok");
             return ""
         }
-        
+
 
         return url
-        
-    
-    
-    
+
+
+
+
     }
 
     this.getPageUrl = function(){
@@ -390,12 +393,12 @@ var UR = new function() {
         addPlayButtonAdded=true;
 
         var containers = document.getElementsByClassName('player-container');
-	    
+
 	    console.log("Containers: " + containers + " length: " + containers.length);
-	    
+
         if (containers.length > 0) {
 	    console.log("Container[0]: " + containers[0]);
-		
+
             containers[0].style.position = 'relative';
             var button = document.createElement('div');
             button.id='mediaplayer-play-button-id'
@@ -497,7 +500,7 @@ var UR = new function() {
 
 	console.log("productButtons: " + productButtons);
 	console.log("Type of productButtons: " + typeof productButtons);
-	    
+
         if ((typeof productButtons === 'undefined') || (productButtons === null)) {
             console.error("can't find product-buttons");
             return;
@@ -506,7 +509,7 @@ var UR = new function() {
         /* Create bookmarkButton
             Note: Instead of adding style attribs to inline markup we should use appendChild(style)
          */
-        
+
         bookmarkButton = document.createElement('button');
         bookmarkButton.type = 'button';
         bookmarkButton.name = 'bookmark';
@@ -524,7 +527,7 @@ var UR = new function() {
         bookmarkButton.style.fontSize = '1.4rem';
         bookmarkButton.style.fontWeight = '600';
         //bookmarkButton.style.marginLeft = '0.4em';
-        
+
         bookmarkButton.addEventListener('click', function() {
             if(UR.programIsBookmarkedFlag === false){
                 UR.Bookmark.save( UR.getProgramId() , UR.getBookmarkUrl() );
@@ -577,7 +580,7 @@ var UR = new function() {
         UR.addIconListener();
         UR.addCaptionListener();
     };
-    
+
     /* function that enables the UI element in the html page that shows that a page has been  bookmarked */
     this.showPageBookmarked = function() {
         console.info('showPageBookmarked');
