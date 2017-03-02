@@ -572,7 +572,7 @@ var UR = new function() {
     this.onPageFinished = function() {
         /*hideURHeader();*/
         UR.allwaysShowCaptionBtn();
-        UR.loadImages();
+        //UR.loadImages();
         UR.addBookmarkButton();
 
         UR.addPlayButton();
